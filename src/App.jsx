@@ -2,6 +2,14 @@
 // #russiaisaterroriststate 
 import React, { useState, useEffect } from 'react';
 import './App.css';
+// 1. IMPORTAÇÕES DO SWIPER
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Importação dos estilos nativos do Swiper
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 // Dicionário completo com os textos em Português e Inglês
 const translations = {
@@ -25,12 +33,14 @@ const translations = {
     portfolioTitle: "Meu Portfólio",
     portfolioSubtitle: "Aqui estão alguns dos projetos técnicos que desenvolvi ou gerenciei:",
     proj1Title: "Sistema de Gestão CRM Interno - LEGUMINA",
-    proj1Desc: "Desenvolvimento e manutenção completa de um sistema de CRM corporativo utilizando Visual Basic e arquitetura de dados MySQL para controle de faturamento e processos operacionais.",
+    proj1Desc: "Desenvolvimento e manutenção completa de um sistema de CRM corporativo utilizando Visual Basic e arquitetura de dados MySQL para controle de faturamento, cadastros de clientes e outros processos operacionais. Criação de site institucional da empresa e configuração de e-mails",
     proj2Title: "Infraestrutura Ágil em Nuvem - GOOGLE PLATFORM",
     proj2Desc: "Implementação e configuração de ambientes de desenvolvimento, redes seguras e balanceamento de carga utilizando a infraestrutura do Google Cloud Platform.",
     proj3Title: "Aplicações Interativas & Web - GITHUB",
     proj3Desc: "Estruturação de portais institucionais e landing pages focadas em performance, semântica moderna de tags (HTML5/CSS3) e otimização para mecanismos de busca (SEO).",
     contactTitle: "Contato",
+    proj4Title: "Otimização e SEO de site - SANGATI BERGA",
+    proj4Desc: "Avaliação e reestruturação de site da empresa, incluindo mais produtos e links relacionados a produtos complementares, sugeridos ao perfil do cliente.",
     contactSubtitle: "Estou em busca de novos desafios. Vamos conversar sobre tecnologia ou oportunidades de projetos?",
     cardLocation: "Localização",
     cardSocial: "Redes Profissionais",
@@ -57,11 +67,13 @@ const translations = {
     portfolioTitle: "My Portfolio",
     portfolioSubtitle: "Here are some of the technical projects I have developed or managed:",
     proj1Title: "Internal CRM Management System - LEGUMINA",
-    proj1Desc: "Complete development and maintenance of a corporate CRM system using Visual Basic and MySQL data architecture for invoicing and operational process control.",
+    proj1Desc: "Complete development and maintenance of a corporate CRM system using Visual Basic and MySQL data architecture for invoicing control, customer registration, and other operational processes. Creation of the company's institutional website and email configuration.",
     proj2Title: "Agile Cloud Infrastructure - GOOGLE PLATFORM",
     proj2Desc: "Implementation and configuration of development environments, secure networks, and load balancing using the Google Cloud Platform infrastructure.",
     proj3Title: "Interactive & Web Applications - GITHUB",
     proj3Desc: "Structuring institutional portals and landing pages focused on performance, modern tag semantics (HTML5/CSS3), and Search Engine Optimization (SEO).",
+    proj4Title: "Website Optimization and SEO - SANGATI BERGA",
+    proj4Desc: "Evaluation and restructuring of the company's website, expanding the product catalog and integrating smart links for complementary products tailored to the customer profile.",
     contactTitle: "Contact",
     contactSubtitle: "I am looking for new challenges. Let's talk about technology or project opportunities?",
     cardLocation: "Location",
@@ -128,9 +140,12 @@ export default function App() {
           <p>{t.aboutP1}</p>
           <p>
             {t.aboutP2}
-            <a href="curriculo.html" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-block', marginLeft: '10px' }}>
-              {t.navResume}
-            </a>
+            {/* O botão isolado em sua própria linha ou bloco */}
+            <div style={{ marginTop: '20px' }}>
+              <a href="/curriculo.html" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-block', marginLeft: '10px' }}>
+                {t.navResume}
+              </a>
+            </div>
           </p>
         </div>
       </section>
@@ -185,34 +200,65 @@ export default function App() {
         <h2>{t.portfolioTitle}</h2>
         <p className="section-subtitle">{t.portfolioSubtitle}</p>
         
-        <div className="portfolio-grid">
+        {/* Container do Slider */}
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]} // Módulos ativos
+          spaceBetween={30}                            // Espaço de 30px entre os cards
+          navigation={true}                            // Setas de navegação nas laterais
+          pagination={{ clickable: true }}             // Pontinhos de paginação embaixo
+          autoplay={{ delay: 5000, disableOnInteraction: false }} // Passa sozinho a cada 5s
+          className="portfolio-swiper"
+          breakpoints={{
+            // Configurações de responsividade (Mobile / Tablet / PC)
+            320: { slidesPerView: 1 },  // Em celulares exibe 1 card por vez
+            768: { slidesPerView: 2 },  // Em tablets exibe 2 cards por vez
+            1024: { slidesPerView: 3 }  // No PC exibe os 3 cards lado a lado na linha
+          }}
+        >
           {/* Projeto 1 */}
-          <div className="portfolio-card">
-            <div className="card-body">
-              <h3>{t.proj1Title}</h3>
-              <p>{t.proj1Desc}</p>
-              <span className="badge">VBA</span> <span className="badge">MySQL</span>
+          <SwiperSlide>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <h3>{t.proj1Title}</h3>
+                <p>{t.proj1Desc}</p>
+                <span className="badge">VBA</span> <span className="badge">MySQL</span>
+              </div>
             </div>
-          </div>
+          </SwiperSlide>
 
           {/* Projeto 2 */}
-          <div className="portfolio-card">
-            <div className="card-body">
-              <h3>{t.proj2Title}</h3>
-              <p>{t.proj2Desc}</p>
-              <span className="badge">GCP</span> <span className="badge">Cloud Compute</span>
+          <SwiperSlide>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <h3>{t.proj2Title}</h3>
+                <p>{t.proj2Desc}</p>
+                <span className="badge">GCP</span> <span className="badge">Cloud Compute</span>
+              </div>
             </div>
-          </div>
+          </SwiperSlide>
 
           {/* Projeto 3 */}
-          <div className="portfolio-card">
-            <div className="card-body">
-              <h3>{t.proj3Title}</h3>
-              <p>{t.proj3Desc}</p>
-              <span className="badge">HTML5</span> <span className="badge">CSS3</span> <span className="badge">SEO</span>
+          <SwiperSlide>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <h3>{t.proj3Title}</h3>
+                <p>{t.proj3Desc}</p>
+                <span className="badge">HTML5</span> <span className="badge">CSS3</span> <span className="badge">SEO</span>
+              </div>
             </div>
-          </div>
-        </div>
+          </SwiperSlide>
+
+          {/* Projeto 4 (O novo projeto agora entra em uma aba própria na mesma linha!) */}
+          <SwiperSlide>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <h3>{t.proj4Title}</h3>
+                <p>{t.proj4Desc}</p>
+                <span className="badge">HTML5</span> <span className="badge">SEO</span> <span className="badge">UX</span>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </section>
 
       {/* Seção de Contato */}
