@@ -20,7 +20,7 @@ const translations = {
     navResume: "Currículo",
     navContact: "Contato",
     heroTitle: "Olá, eu sou o ",
-    heroSubtitle: "Desenvolvedor de Software & Analista de Sistemas",
+    heroSubtitle: "Desenvolvedor de Software | Analista de Sistemas | Full Stack (React/PHP/SQL) | Cloud (GCP) | Ex-Engenheiro",
     heroBtn: "Ver Meus Projetos",
     aboutTitle: "Sobre Mim / Histórico",
     aboutP1: "Sou um profissional em transição consolidada para a área de Tecnologia da Informação, unindo uma sólida bagagem em Engenharia e Gestão de Projetos com mais de 20 anos de experiência na resolução de problemas complexos, liderança e gestão.",
@@ -30,17 +30,23 @@ const translations = {
     skillsCat2: "Frontend & Cloud",
     skillsCat3: "Metodologias & Negócios",
     skillsCat4: "Habilidades destacadas",
+    skillHardwareTitle: "Infraestrutura & Hardware",
+    skillHardwareItem1: "Montagem e diagnóstico",
+    skillHardwareItem2: "Redes locais (LAN/WLAN)",
+    skillHardwareItem3: "Dimensionamento de hardware",
+    skillHardwareItem4: "Substituição de componentes",
     portfolioTitle: "Meu Portfólio",
     portfolioSubtitle: "Aqui estão alguns dos projetos técnicos que desenvolvi ou gerenciei:",
     proj1Title: "Sistema de Gestão CRM Interno - LEGUMINA",
     proj1Desc: "Desenvolvimento e manutenção completa de um sistema de CRM corporativo utilizando Visual Basic e arquitetura de dados MySQL para controle de faturamento, cadastros de clientes e outros processos operacionais. Criação de site institucional da empresa e configuração de e-mails",
-    proj2Title: "Infraestrutura Ágil em Nuvem - GOOGLE PLATFORM",
-    proj2Desc: "Implementação e configuração de ambientes de desenvolvimento, redes seguras e balanceamento de carga utilizando a infraestrutura do Google Cloud Platform.",
+
     proj3Title: "Aplicações Interativas & Web - GITHUB",
     proj3Desc: "Estruturação de portais institucionais e landing pages focadas em performance, semântica moderna de tags (HTML5/CSS3) e otimização para mecanismos de busca (SEO).",
-    contactTitle: "Contato",
     proj4Title: "Otimização e SEO de site - SANGATI BERGA",
     proj4Desc: "Avaliação e reestruturação de site da empresa, incluindo mais produtos e links relacionados a produtos complementares, sugeridos ao perfil do cliente.",
+    proj5Title: "Infraestrutura Ágil em Nuvem - GOOGLE PLATFORM",
+    proj5Desc: "Implementação e configuração de ambientes de desenvolvimento, redes seguras e balanceamento de carga utilizando a infraestrutura do Google Cloud Platform.",
+    contactTitle: "Contato",
     contactSubtitle: "Estou em busca de novos desafios. Vamos conversar sobre tecnologia ou oportunidades de projetos?",
     cardLocation: "Localização",
     cardSocial: "Redes Profissionais",
@@ -54,7 +60,7 @@ const translations = {
     navResume: "Resume",
     navContact: "Contact",
     heroTitle: "Hi, I am ",
-    heroSubtitle: "Software Developer & Systems Analyst",
+    heroSubtitle: "Software Developer | Systems Analyst | Full Stack (React/PHP/SQL) | Cloud (GCP) | Former Engineer",
     heroBtn: "View My Projects",
     aboutTitle: "About Me / History",
     aboutP1: "I am a professional in a consolidated transition to the Information Technology field, combining a solid background in Engineering and Project Management with over 20 years of experience in complex problem solving, leadership, and management.",
@@ -64,16 +70,24 @@ const translations = {
     skillsCat2: "Frontend & Cloud",
     skillsCat3: "Methodologies & Business",
     skillsCat4: "Highlighted Skills",
+    skillHardwareTitle: "Infrastructure & Hardware",
+    skillHardwareItem1: "Assembly and diagnostics",
+    skillHardwareItem2: "Local network (LAN/WLAN)",
+    skillHardwareItem3: "Component deployment",
+    skillHardwareItem4: "Component replacement",
     portfolioTitle: "My Portfolio",
     portfolioSubtitle: "Here are some of the technical projects I have developed or managed:",
     proj1Title: "Internal CRM Management System - LEGUMINA",
     proj1Desc: "Complete development and maintenance of a corporate CRM system using Visual Basic and MySQL data architecture for invoicing control, customer registration, and other operational processes. Creation of the company's institutional website and email configuration.",
-    proj2Title: "Agile Cloud Infrastructure - GOOGLE PLATFORM",
-    proj2Desc: "Implementation and configuration of development environments, secure networks, and load balancing using the Google Cloud Platform infrastructure.",
+    proj2Title: "Website Optimization and SEO - SANGATI BERGA",
+    proj2Desc: "Evaluation and restructuring of the company's website, expanding the product catalog and integrating smart links for complementary products tailored to the customer profile.",
     proj3Title: "Interactive & Web Applications - GITHUB",
     proj3Desc: "Structuring institutional portals and landing pages focused on performance, modern tag semantics (HTML5/CSS3), and Search Engine Optimization (SEO).",
     proj4Title: "Website Optimization and SEO - SANGATI BERGA",
     proj4Desc: "Evaluation and restructuring of the company's website, expanding the product catalog and integrating smart links for complementary products tailored to the customer profile.",
+    proj5Title: "Agile Cloud Infrastructure - GOOGLE PLATFORM",
+    proj5Desc: "Implementation and configuration of development environments, secure networks, and load balancing using the Google Cloud Platform infrastructure.",
+
     contactTitle: "Contact",
     contactSubtitle: "I am looking for new challenges. Let's talk about technology or project opportunities?",
     cardLocation: "Location",
@@ -100,38 +114,62 @@ export default function App() {
   // Atalho para acessar as traduções do idioma atual
   const t = translations[lang];
 
+  // Criar o estado para controlar se o menu está aberto ou fechado
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Função auxiliar para fechar o menu ao clicar em um link
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <div>
-      {/* Menu de Navegação Fixo */}
-      <nav className="navbar">
-        <div className="nav-container">
-          <a href="#" className="nav-logo">
+    {/* Menu de Navegação Fixo com Menu Hambúrguer */}
+      <header className="navbar-header">
+        <nav className="navbar-container">
+          {/* Sua Logo Blindada */}
+          <a href="#" className="nav-logo" onClick={closeMenu}>
             <span className="logo-main">Mario Antonio</span>
             <span className="logo-sub">Coldor</span>
           </a>
-          <ul className="nav-menu">
-            <li><a href="#sobre">{t.navAbout}</a></li>
-            <li><a href="#habilidades">{t.navSkills}</a></li>
-            <li><a href="#portfolio">{t.navPortfolio}</a></li>
-            <li><a href="/curriculo.html" target="_blank" rel="noopener noreferrer">  {t.navResume}</a></li>
-            <li><a href="#contato">{t.navContact}</a></li>
+
+          {/* O Botão Hambúrguer (Aparece só no celular) */}
+          <button 
+            className={`menu-toggle ${menuOpen ? 'open' : ''}`} 
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Abrir menu"
+          >
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
+
+          {/* Lista de Links - Ganha a classe 'active' se o menu estiver aberto */}
+          <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
+            <li><a href="#sobre" onClick={closeMenu}>{t.navAbout}</a></li>
+            <li><a href="#habilidades" onClick={closeMenu}>{t.navSkills}</a></li>
+            <li><a href="#portfolio" onClick={closeMenu}>{t.navPortfolio}</a></li>
             <li>
-              <button id="language-toggle" className="btn-lang" onClick={toggleLanguage}>
+              <a href="/curriculo.html" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
+                {t.navResume}
+              </a>
+            </li>
+            <li><a href="#contato" onClick={closeMenu}>{t.navContact}</a></li>
+            <li>
+              <button id="language-toggle" className="btn-lang" onClick={() => { toggleLanguage(); closeMenu(); }}>
                 {lang === "pt" ? "EN" : "PT"}
               </button>
             </li>
           </ul>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Seção de Boas-Vindas (Hero Section) */}
-      <header className="hero">
+      <section className="hero">
         <div className="hero-content">
           <h1>{t.heroTitle}<span>Mario</span></h1>
           <p>{t.heroSubtitle}</p>
           <a href="#portfolio" className="btn-primary">{t.heroBtn}</a>
         </div>
-      </header>
+      </section>
 
       {/* Seção Sobre / Histórico */}
       <section id="sobre" className="section-container">
@@ -182,7 +220,7 @@ export default function App() {
               <li>Normatização ISO 9000</li>
             </ul>
           </div>
-          <div className="skills-category highlight-box">
+          <div className="skills-category">
             <h3>{t.skillsCat4}</h3>
             <ul className="skills-buttons-list text-center">
               <li>Trabalho em equipe</li>
@@ -191,6 +229,20 @@ export default function App() {
               <li>Negociação</li>
               <li>Resolução de problemas</li>
             </ul>
+          </div>
+          {/* //--------------------------------------- */}
+          <div className="skills-category">
+            <h3>
+              <span role="img" aria-label="hardware" style={{ marginRight: '8px' }}></span>
+              {t.skillHardwareTitle}
+            </h3>
+            <ul className="skills-buttons-list text-center">
+              <li>{t.skillHardwareItem1}</li>
+              <li>{t.skillHardwareItem2}</li>
+              <li>{t.skillHardwareItem3}</li>
+              <li>{t.skillHardwareItem4}</li>
+            </ul>
+            
           </div>
         </div>
       </section>

@@ -114,13 +114,39 @@ body {
     padding-left: 2px; /* Ajuste fino de alinhamento por causa do espaçamento */
 }
 
+/* 1. A Faixa Fixa no Topo */
+.navbar-header {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* 2. O Container que força a Logo e os Links a ficarem na mesma linha física */
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex !important;       /* Força o comportamento Flexbox */
+    direction: row !important;      /* Garante o alinhamento horizontal */
+    justify-content: space-between; /* Logo na extrema esquerda, Menu na extrema direita */
+    align-items: center;            /* Alinha os dois perfeitamente pelo centro vertical */
+}
+
+/* 3. Lista de Links no Computador (Menu Horizontal) */
 .nav-menu {
     display: flex;
     list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;            /* Alinha os itens e o botão de idioma na horizontal */
 }
 
 .nav-menu li {
-    margin-left: 25px;
+    margin-left: 25px;              /* Espaçamento entre os links */
 }
 
 .nav-menu a {
@@ -132,6 +158,28 @@ body {
 
 .nav-menu a:hover {
     color: #2b6cb0;
+}
+
+/* Oculta o botão hambúrguer por padrão no monitor */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #1a365d;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 /* Seção de Entrada (Hero) */
@@ -392,11 +440,48 @@ footer {
 
 /* Responsividade Básica para Celulares */
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none; /* Em projetos futuros você pode fazer um menu sanduíche aqui */
+.menu-toggle {
+        display: flex; /* Revela o ícone de 3 barrinhas no celular */
     }
-    .hero h1 {
-        font-size: 2.2rem;
+
+    /* Transforma a lista horizontal em cortina vertical no mobile */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Joga o menu para fora da tela */
+        width: 70%;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.4s ease;
+    }
+
+    /* Entra na tela ao clicar */
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu li {
+        margin: 20px 0; /* Espaço vertical entre as opções no celular */
+        margin-left: 0; /* Reseta o espaçamento lateral do PC */
+    }
+
+    .nav-menu a {
+        font-size: 1.2rem;
+    }
+
+    /* Animação do ícone mudando para X */
+    .menu-toggle.open .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.open .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }
 
