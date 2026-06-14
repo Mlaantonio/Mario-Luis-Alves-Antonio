@@ -2,7 +2,7 @@
 // #russiaisaterroriststate 
 import React, { useState, useEffect } from 'react';
 import './App.css';
-// 1. IMPORTAÇÕES DO SWIPER
+//  IMPORTAÇÕES DO SWIPER
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
@@ -14,38 +14,62 @@ import 'swiper/css/pagination';
 // Dicionário completo com os textos em Português e Inglês
 const translations = {
   pt: {
+// CATEGORIAS DO MENU
     navAbout: "Sobre",
     navSkills: "Habilidades",
     navPortfolio: "Portfólio",
     navResume: "Currículo",
     navContact: "Contato",
+// CATEGORIAS DE BOAS VINDAS
     heroTitle: "Olá, eu sou o ",
     heroSubtitle: "Desenvolvedor de Software | Analista de Sistemas | Full Stack (React/PHP/SQL) | Cloud (GCP) | Ex-Engenheiro",
     heroBtn: "Ver Meus Projetos",
+// CATEGORIAS SEÇÃO SOBRE
     aboutTitle: "Sobre Mim / Histórico",
-    aboutP1: "Sou um profissional em transição consolidada para a área de Tecnologia da Informação, unindo uma sólida bagagem em Engenharia e Gestão de Projetos com mais de 20 anos de experiência na resolução de problemas complexos, liderança e gestão.",
-    aboutP2: "Sempre tive forte afinidade com a tecnologia, tendo atuado diretamente no desenvolvimento de sistemas internos de CRM utilizando Visual Basic (VB), arquitetura de bancos de dados relacionais e construção de interfaces web. Minha transição é impulsionada pela graduação atual em Análise e Desenvolvimento de Sistemas e por certificações contínuas em arquitetura e infraestrutura de computação em nuvem (Google Cloud Platform).",
-    skillsTitle: "Habilidades Técnicas",
+    aboutP1: "Sou um profissional em transição consolidada para a área de Tecnologia da Informação, unindo uma sólida bagagem em Engenharia e Gestão de Projetos com mais de 20 anos de experiência na liderança de equipes, melhoria contínua e resolução de problemas complexos através do método PDCA. Minha afinidade com a tecnologia é de longa data: sempre atuei diretamente no desenvolvimento de sistemas internos de CRM utilizando Visual Basic (VB), modelagem de arquitetura de bancos de dados relacionais e construção de interfaces web.",
+    aboutP2: "Atualmente, amplio essa atuação técnica através da graduação em Análise e Desenvolvimento de Sistemas e por certificações contínuas em arquitetura e infraestrutura de computação em nuvem (Google Cloud Platform), com foco em ambientes escaláveis e redes seguras. Com histórico consolidado nos mercados de varejo corporativo e B2B, combino proficiência técnica sênior com visão analítica para arquitetar soluções que geram eficiência operacional e real crescimento de negócios.",
+// CATEGORIAS DE HABILIDADES
+    skillsTitle: "Minhas Habilidades",
     skillsCat1: "Backend & Dados",
+    skillsCat1A: "SQL / MySQL",
+    skillsCat1B: "Java & C++",
+    skillsCat1C: "PHP",
+    skillsCat1D: "VBA / Visual Basic",
     skillsCat2: "Frontend & Cloud",
-    skillsCat3: "Metodologias & Negócios",
-    skillsCat4: "Habilidades destacadas",
-    skillHardwareTitle: "Infraestrutura & Hardware",
-    skillHardwareItem1: "Montagem e diagnóstico",
-    skillHardwareItem2: "Redes locais (LAN/WLAN)",
-    skillHardwareItem3: "Dimensionamento de hardware",
-    skillHardwareItem4: "Substituição de componentes",
+    skillsCat2A: "HTML5 & CSS3",
+    skillsCat2B: "JavaScript",
+    skillsCat2C: "Google Cloud Platform",
+    skillsCat2D: "Infraestrutura e Redes",
+    skillsCat3: "Metodologias & Gestão",
+    skillsCat3A: "Resolução de Problemas (PDCA)",
+    skillsCat3B: "Tráfego WEB (SEO Google)",
+    skillsCat3C: "Gerenciamento de Projetos",
+    skillsCat3D: "Gestão de Equipes",
+    skillsCat3E: "Normatização ISO 9000",
+    skillsCat4: "Habilidades Destacadas",
+    skillsCat4A: "Trabalho em equipe",
+    skillsCat4B: "Comunicação",
+    skillsCat4C: "Negociação",
+    skillsCat4D: "Resolução de conflitos",
+    skillsCat5: "Infraestrutura & Hardware",
+    skillsCat5A: "Montagem e diagnóstico",
+    skillsCat5B: "Redes locais (LAN/WLAN)",
+    skillsCat5C: "Dimensionamento de hardware",
+    skillsCat5D: "Substituição de componentes",
+// CATEGORIAS DE PORTIFÓLIO
     portfolioTitle: "Meu Portfólio",
     portfolioSubtitle: "Aqui estão alguns dos projetos técnicos que desenvolvi ou gerenciei:",
     proj1Title: "Sistema de Gestão CRM Interno - LEGUMINA",
     proj1Desc: "Desenvolvimento e manutenção completa de um sistema de CRM corporativo utilizando Visual Basic e arquitetura de dados MySQL para controle de faturamento, cadastros de clientes e outros processos operacionais. Criação de site institucional da empresa e configuração de e-mails",
-
-    proj3Title: "Aplicações Interativas & Web - GITHUB",
-    proj3Desc: "Estruturação de portais institucionais e landing pages focadas em performance, semântica moderna de tags (HTML5/CSS3) e otimização para mecanismos de busca (SEO).",
-    proj4Title: "Otimização e SEO de site - SANGATI BERGA",
-    proj4Desc: "Avaliação e reestruturação de site da empresa, incluindo mais produtos e links relacionados a produtos complementares, sugeridos ao perfil do cliente.",
+    proj2Title: "Estatísticas do Processo Industrial - VICUNHA TEXTIL",
+    proj2Desc: "Criação de banco de dados e interface para importação, cadastro e consultas dos dados de metrologia no laboratório. Utilizando as estatísticas do processo para monitoramento, identificação de melhorias e de correções.",
+    proj3Title: "Otimização e SEO de site - SANGATI BERGA",
+    proj3Desc: "Avaliação e reestruturação de site da empresa, incluindo mais produtos e links relacionados a produtos complementares, sugeridos ao perfil do cliente.",
+    proj4Title: "Aplicações Interativas & Web - GITHUB",
+    proj4Desc: "Estruturação de portais institucionais e landing pages focadas em performance, semântica moderna de tags (HTML5/CSS3) e otimização para mecanismos de busca (SEO).",
     proj5Title: "Infraestrutura Ágil em Nuvem - GOOGLE PLATFORM",
     proj5Desc: "Implementação e configuração de ambientes de desenvolvimento, redes seguras e balanceamento de carga utilizando a infraestrutura do Google Cloud Platform.",
+// CATEGORIAS DE CONTATO
     contactTitle: "Contato",
     contactSubtitle: "Estou em busca de novos desafios. Vamos conversar sobre tecnologia ou oportunidades de projetos?",
     cardLocation: "Localização",
@@ -63,31 +87,50 @@ const translations = {
     heroSubtitle: "Software Developer | Systems Analyst | Full Stack (React/PHP/SQL) | Cloud (GCP) | Former Engineer",
     heroBtn: "View My Projects",
     aboutTitle: "About Me / History",
-    aboutP1: "I am a professional in a consolidated transition to the Information Technology field, combining a solid background in Engineering and Project Management with over 20 years of experience in complex problem solving, leadership, and management.",
-    aboutP2: "I have always had a strong affinity for technology, having worked directly in the development of internal CRM systems using Visual Basic (VB), relational database architecture, and web interface construction. My transition is driven by my current degree in Systems Analysis and Development and ongoing certifications in cloud computing architecture and infrastructure (Google Cloud Platform).",
-    skillsTitle: "Technical Skills",
+    aboutP1: "I am a professional successfully transitioning into Information Technology, blending a solid background in Engineering and Project Management with over 20 years of experience in leading multi-disciplinary teams, continuous improvement, and complex problem-solving through the PDCA method. My affinity for technology runs deep: I have long been directly involved in developing internal corporate CRM systems using Visual Basic (VB), modeling relational database architectures, and building web interfaces.",
+    aboutP2: "Currently, I am expanding my technical capabilities through a degree in Systems Analysis and Development and continuous certifications in cloud architecture and infrastructure (Google Cloud Platform), focusing on scalable environments and secure networks. With a proven track record in B2B and retail corporate environments, I combine senior-level technical proficiency with an analytical mindset to architect solutions that drive operational efficiency and real business growth.",
+// SKILLS CATEGORIES ENGLISH
+    skillsTitle: "My Skills",
     skillsCat1: "Backend & Data",
+    skillsCat1A: "SQL / MySQL",
+    skillsCat1B: "Java & C++",
+    skillsCat1C: "PHP",
+    skillsCat1D: "VBA / Visual Basic",
     skillsCat2: "Frontend & Cloud",
-    skillsCat3: "Methodologies & Business",
-    skillsCat4: "Highlighted Skills",
-    skillHardwareTitle: "Infrastructure & Hardware",
-    skillHardwareItem1: "Assembly and diagnostics",
-    skillHardwareItem2: "Local network (LAN/WLAN)",
-    skillHardwareItem3: "Component deployment",
-    skillHardwareItem4: "Component replacement",
+    skillsCat2A: "HTML5 & CSS3",
+    skillsCat2B: "JavaScript",
+    skillsCat2C: "Google Cloud Platform",
+    skillsCat2D: "Infrastructure & Networks",
+    skillsCat3: "Methodologies & Management",
+    skillsCat3A: "Problem Solving (PDCA Method)",
+    skillsCat3B: "Web Traffic (Google SEO)",
+    skillsCat3C: "Project Management",
+    skillsCat3D: "Team Leadership",
+    skillsCat3E: "ISO 9000 Compliance",
+    skillsCat4: "Core Skills",
+    skillsCat4A: "Teamwork",
+    skillsCat4B: "Communication",
+    skillsCat4C: "Negotiation",
+    skillsCat4D: "Conflict Resolution",
+    skillsCat5: "Physical Infrastructure & Hardware",
+    skillsCat5A: "Assembly & Diagnostics",
+    skillsCat5B: "Local Networks (LAN/WLAN)",
+    skillsCat5C: "Hardware Sizing",
+    skillsCat5D: "Component Replacement",
+// CATEGORIAS DE PORTIFÓLIO EM INGLÊS
     portfolioTitle: "My Portfolio",
     portfolioSubtitle: "Here are some of the technical projects I have developed or managed:",
     proj1Title: "Internal CRM Management System - LEGUMINA",
-    proj1Desc: "Complete development and maintenance of a corporate CRM system using Visual Basic and MySQL data architecture for invoicing control, customer registration, and other operational processes. Creation of the company's institutional website and email configuration.",
-    proj2Title: "Website Optimization and SEO - SANGATI BERGA",
-    proj2Desc: "Evaluation and restructuring of the company's website, expanding the product catalog and integrating smart links for complementary products tailored to the customer profile.",
-    proj3Title: "Interactive & Web Applications - GITHUB",
-    proj3Desc: "Structuring institutional portals and landing pages focused on performance, modern tag semantics (HTML5/CSS3), and Search Engine Optimization (SEO).",
-    proj4Title: "Website Optimization and SEO - SANGATI BERGA",
-    proj4Desc: "Evaluation and restructuring of the company's website, expanding the product catalog and integrating smart links for complementary products tailored to the customer profile.",
+    proj1Desc: "Complete development and maintenance of a corporate CRM system using Visual Basic and MySQL data architecture for invoicing control, customer registration, and other operational processes. Deployment of the institutional website and enterprise email configuration.",
+    proj2Title: "Industrial Process Statistics - VICUNHA TEXTIL",
+    proj2Desc: "Creation of a database and interface for laboratory metrology data importing, registration, and querying. Utilizing process statistics for monitoring, continuous improvement, and corrective action identification.",
+    proj3Title: "Website Optimization & SEO - SANGATI BERGA",
+    proj3Desc: "Evaluation and restructuring of the company's website, expanding the product catalog and integrating smart links for complementary products tailored to the customer profile.",
+    proj4Title: "Interactive & Web Applications - GITHUB",
+    proj4Desc: "Structuring institutional portals and landing pages focused on high performance, modern tag semantics (HTML5/CSS3), and Search Engine Optimization (SEO).",
     proj5Title: "Agile Cloud Infrastructure - GOOGLE PLATFORM",
     proj5Desc: "Implementation and configuration of development environments, secure networks, and load balancing using the Google Cloud Platform infrastructure.",
-
+// Seção contato
     contactTitle: "Contact",
     contactSubtitle: "I am looking for new challenges. Let's talk about technology or project opportunities?",
     cardLocation: "Location",
@@ -98,7 +141,7 @@ const translations = {
 };
 
 export default function App() {
-  // Estado para controlar o idioma atual (puxa do localStorage se houver)
+  // Estado para controlar o idioma atual 
   const [lang, setLang] = useState(localStorage.getItem("preferredLanguage") || "pt");
 
   // Atualiza o localStorage sempre que o idioma mudar
@@ -125,7 +168,7 @@ export default function App() {
     {/* Menu de Navegação Fixo com Menu Hambúrguer */}
       <header className="navbar-header">
         <nav className="navbar-container">
-          {/* Sua Logo Blindada */}
+          {/* Logo Blindada */}
           <a href="#" className="nav-logo" onClick={closeMenu}>
             <span className="logo-main">Mario Antonio</span>
             <span className="logo-sub">Coldor</span>
@@ -176,9 +219,7 @@ export default function App() {
         <h2>{t.aboutTitle}</h2>
         <div className="about-content">
           <p>{t.aboutP1}</p>
-          <p>
-            {t.aboutP2}
-            {/* O botão isolado em sua própria linha ou bloco */}
+          <p>{t.aboutP2}
             <div style={{ marginTop: '20px' }}>
               <a href="/curriculo.html" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-block', marginLeft: '10px' }}>
                 {t.navResume}
@@ -187,67 +228,68 @@ export default function App() {
           </p>
         </div>
       </section>
+      {/*-------------------------------------------------------------------------*/}
 
       {/* Seção de Habilidades */}
       <section id="habilidades" className="section-container bg-light">
         <h2>{t.skillsTitle}</h2>
         <div className="skills-grid">
+          {/*------------------------------------------- */}
           <div className="skills-category">
             <h3>{t.skillsCat1}</h3>
             <ul className="skills-buttons-list">
-              <li>SQL / MySQL</li>
-              <li>Java & C++</li>
-              <li>PHP</li>
-              <li>VBA / Visual Basic</li>
+              <li>{t.skillsCat1A}</li>
+              <li>{t.skillsCat1B}</li>
+              <li>{t.skillsCat1C}</li>
+              <li>{t.skillsCat1D}</li>
             </ul>
           </div>
+          {/*------------------------------------------- */}
           <div className="skills-category">
             <h3>{t.skillsCat2}</h3>
             <ul className="skills-buttons-list">
-              <li>HTML5 & CSS3</li>
-              <li>JavaScript</li>
-              <li>Google Cloud Platform</li>
-              <li>Infraestrutura e Redes</li>
+              <li>{t.skillsCat2A}</li>
+              <li>{t.skillsCat2B}</li>
+              <li>{t.skillsCat2C}</li>
+              <li>{t.skillsCat2D}</li>
             </ul>
           </div>
+          {/*------------------------------------------- */}
           <div className="skills-category">
             <h3>{t.skillsCat3}</h3>
             <ul className="skills-buttons-list">
-              <li>Resolução de Problemas (PDCA)</li>
-              <li>Tráfego WEB (SEO Google)</li>
-              <li>Gerenciamento de Projetos</li>
-              <li>Gestão de Equipes</li>
-              <li>Normatização ISO 9000</li>
+              <li>{t.skillsCat3A}</li>
+              <li>{t.skillsCat3B}</li>
+              <li>{t.skillsCat3C}</li>
+              <li>{t.skillsCat3D}</li>
+              <li>{t.skillsCat3E}</li>
             </ul>
           </div>
+          {/*------------------------------------------- */}          
           <div className="skills-category">
             <h3>{t.skillsCat4}</h3>
             <ul className="skills-buttons-list text-center">
-              <li>Trabalho em equipe</li>
-              <li>Comunicação</li>
-              <li>Adaptabilidade</li>
-              <li>Negociação</li>
-              <li>Resolução de problemas</li>
+              <li>{t.skillsCat4A}</li>
+              <li>{t.skillsCat4B}</li>
+              <li>{t.skillsCat4C}</li>
+              <li>{t.skillsCat4D}</li>
             </ul>
           </div>
-          {/* //--------------------------------------- */}
+          {/*------------------------------------------- */}
           <div className="skills-category">
-            <h3>
-              <span role="img" aria-label="hardware" style={{ marginRight: '8px' }}></span>
-              {t.skillHardwareTitle}
-            </h3>
+            <h3>{t.skillsCat5}</h3>
             <ul className="skills-buttons-list text-center">
-              <li>{t.skillHardwareItem1}</li>
-              <li>{t.skillHardwareItem2}</li>
-              <li>{t.skillHardwareItem3}</li>
-              <li>{t.skillHardwareItem4}</li>
-            </ul>
-            
+              <li>{t.skillsCat5A}</li>
+              <li>{t.skillsCat5B}</li>
+              <li>{t.skillsCat5C}</li>
+              <li>{t.skillsCat5D}</li>
+            </ul>      
           </div>
+          {/*------------------------------------------- */}          
         </div>
       </section>
 
-      {/* Seção do Portfólio (Projetos) */}
+      {/* Seção do Portfólio (Realizações) */}
       <section id="portfolio" className="section-container">
         <h2>{t.portfolioTitle}</h2>
         <p className="section-subtitle">{t.portfolioSubtitle}</p>
@@ -284,7 +326,7 @@ export default function App() {
               <div className="card-body">
                 <h3>{t.proj2Title}</h3>
                 <p>{t.proj2Desc}</p>
-                <span className="badge">GCP</span> <span className="badge">Cloud Compute</span>
+                <span className="badge">VBA</span> <span className="badge">MySQL</span>
               </div>
             </div>
           </SwiperSlide>

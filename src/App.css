@@ -346,52 +346,66 @@ h2::after {
     text-align: center;
 }
 
-/* Grid do Portfólio (Cards de Projetos) */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+/* Grid do Portfólio (Cards Realizações) */
+/* ==========================================================================*/
+#portfolio.section-container {
+    max-width: 1400px; /* Expandido de 1200px para 1400px para dar mais amplitude horizontal */
+    margin: 0 auto;
+    padding: 60px 40px; /* Aumenta o respiro nas laterais e topos */
 }
 
+/* swiper */
+.portfolio-swiper {
+    padding-bottom: 60px !important; /* Espaço confortável para os pontinhos de paginação */
+    width: 100%;
+}
+
+/* Customização dos Cards do Carrossel */
 .portfolio-card {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 8px;
+    border-radius: 12px; /* Cantos levemente mais arredondados para um visual moderno */
     overflow: hidden;
+    height: 100%; /* Força todos os cards a manterem a mesma altura simétrica na linha */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .portfolio-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transform: translateY(-8px); /* Flutuação um pouco mais destacada */
+    box-shadow: 0 15px 30px rgba(26, 54, 93, 0.08); /* Sombra ligeiramente mais profunda com tom azulado */
 }
 
+/* preenchimento interno do card largura */
 .card-body {
-    padding: 25px;
+    padding: 30px; /* 30px para dar uma área de leitura muito mais nobre */
 }
 
 .card-body h3 {
-    font-size: 1.2rem;
+    font-size: 1.35rem; /* Título sutilmente maior para destacar bem o projeto */
     color: #1a365d;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    font-weight: 700;
 }
 
 .card-body p {
-    font-size: 0.95rem;
+    font-size: 1rem; /* Texto descritivo um pouco mais confortável para leitura */
     color: #4a5568;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    line-height: 1.6; /* Melhor distanciamento entre as linhas de texto */
 }
 
+/* Ajuste sutil nas badges de tecnologia */
 .badge {
     display: inline-block;
     width: auto;
     background-color: #ebf8ff;
     color: #2b6cb0;
-    font-size: 0.8rem;
-    padding: 4px 10px;
-    border-radius: 4px;
+    font-size: 0.85rem;
+    padding: 6px 14px; /* Mais espaço interno nas tags corporativas */
+    border-radius: 6px;
     font-weight: 600;
-    margin-right: 5px;
+    margin-right: 8px;
+    margin-bottom: 6px; /* Garante que se quebrarem de linha não embolem */
 }
 
 /* Seção Contato */
