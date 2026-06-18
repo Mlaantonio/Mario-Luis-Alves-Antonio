@@ -68,7 +68,9 @@ const translations = {
     proj4Title: "Aplicações Interativas & Web - GITHUB",
     proj4Desc: "Estruturação de portais institucionais e landing pages focadas em performance, semântica moderna de tags (HTML5/CSS3) e otimização para mecanismos de busca (SEO).",
     proj5Title: "Infraestrutura Ágil em Nuvem - GOOGLE PLATFORM",
-    proj5Desc: "Implementação e configuração de ambientes de desenvolvimento, redes seguras e balanceamento de carga utilizando a infraestrutura do Google Cloud Platform.",
+    proj5Desc: "Implementação e configuração de ambientes de desenvolvimento, redes seguras e balanceamento de carga utilizando a infraestrutura do laboratório Google Cloud Platform.",
+    proj6Title: "MarioPlay PRO - Hub de Jogos com React",
+    proj6Desc: "Desenvolvimento e implantação de um portal moderno de jogos web, migrando componentes interativos como Bingo e Jogo da Forca para Next.js para praticar habilidades avançadas em React, roteamento e arquitetura frontend responsiva.",
 // CATEGORIAS DE CONTATO
     contactTitle: "Contato",
     contactSubtitle: "Estou em busca de novos desafios. Vamos conversar sobre tecnologia ou oportunidades de projetos?",
@@ -129,7 +131,9 @@ const translations = {
     proj4Title: "Interactive & Web Applications - GITHUB",
     proj4Desc: "Structuring institutional portals and landing pages focused on high performance, modern tag semantics (HTML5/CSS3), and Search Engine Optimization (SEO).",
     proj5Title: "Agile Cloud Infrastructure - GOOGLE PLATFORM",
-    proj5Desc: "Implementation and configuration of development environments, secure networks, and load balancing using the Google Cloud Platform infrastructure.",
+    proj5Desc: "Implementation and configuration of development environments, secure networks, and load balancing using the Google Cloud Platform infrastructure laboratory.",
+    proj6Title: "MarioPlay PRO - React Gaming Hub",
+    proj6Desc: "Development and deployment of a modern web gaming hub, migrating interactive components like Bingo and Hangman to Next.js to practice advanced React skills, routing, and responsive frontend architecture.",
 // Seção contato
     contactTitle: "Contact",
     contactSubtitle: "I am looking for new challenges. Let's talk about technology or project opportunities?",
@@ -300,7 +304,7 @@ export default function App() {
           spaceBetween={30}                            // Espaço de 30px entre os cards
           navigation={true}                            // Setas de navegação nas laterais
           pagination={{ clickable: true }}             // Pontinhos de paginação embaixo
-          autoplay={{ delay: 5000, disableOnInteraction: false }} // Passa sozinho a cada 5s
+          autoplay={{ delay: 15000, disableOnInteraction: false }} // Passa sozinho a cada 5s
           className="portfolio-swiper"
           breakpoints={{
             // Configurações de responsividade (Mobile / Tablet / PC)
@@ -315,6 +319,7 @@ export default function App() {
               <div className="card-body">
                 <h3>{t.proj1Title}</h3>
                 <p>{t.proj1Desc}</p>
+                <p><a href="https://www.legumina.com.br" target="_blank" rel="noopener noreferrer" className="btn-primary">www.legumina.com.br</a></p>
                 <span className="badge">VBA</span> <span className="badge">MySQL</span>
               </div>
             </div>
@@ -337,21 +342,48 @@ export default function App() {
               <div className="card-body">
                 <h3>{t.proj3Title}</h3>
                 <p>{t.proj3Desc}</p>
-                <span className="badge">HTML5</span> <span className="badge">CSS3</span> <span className="badge">SEO</span>
+                <p><a href="https://www.sangatiberga.com.br" target="_blank" rel="noopener noreferrer" className="btn-primary">www.sangatiberga.com.br</a></p>
+                <span className="badge">HTML5</span> <span className="badge">CSS3</span> <span className="badge">SEO</span> <span className="badge">Sketchup</span>
               </div>
             </div>
           </SwiperSlide>
 
-          {/* Projeto 4 (O novo projeto agora entra em uma aba própria na mesma linha!) */}
+          {/* Projeto 4 */}
           <SwiperSlide>
             <div className="portfolio-card">
               <div className="card-body">
                 <h3>{t.proj4Title}</h3>
                 <p>{t.proj4Desc}</p>
+                <p><a href="https://github.com/Mlaantonio" target="_blank" rel="noopener noreferrer" className="btn-primary">github.com</a></p>
                 <span className="badge">HTML5</span> <span className="badge">SEO</span> <span className="badge">UX</span>
               </div>
             </div>
           </SwiperSlide>
+
+          {/* Projeto 5 */}
+          <SwiperSlide>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <h3>{t.proj5Title}</h3>
+                <p>{t.proj5Desc}</p>
+                <p><a href="https://www.credly.com/users/mario-luis-alves-antonio" target="_blank" rel="noopener noreferrer" className="btn-primary">credly.com</a></p>
+                <span className="badge">GoogleCloud</span> <span className="badge">GCP</span> <span className="badge">CloudComputing</span> <span className="badge">DevOps</span>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          {/* Projeto 6 */}
+          <SwiperSlide>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <h3>{t.proj6Title}</h3>
+                <p>{t.proj6Desc}</p>
+                <p><a href="https://marioplay.vercel.app" target="_blank" rel="noopener noreferrer" className="btn-primary">marioplay.vercel.app</a></p>
+                <span className="badge">React</span> <span className="badge">Next.js</span> <span className="badge">MongoDB</span> <span className="badge">NoSQL</span> <span className="badge">Backend Integration</span>
+              </div>
+            </div>
+          </SwiperSlide>
+
         </Swiper>
       </section>
 
