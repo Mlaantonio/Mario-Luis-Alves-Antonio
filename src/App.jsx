@@ -73,7 +73,7 @@ const translations = {
     proj6Desc: "Desenvolvimento e implantação de um portal moderno de jogos web, migrando componentes interativos como Bingo e Jogo da Forca para Next.js para praticar habilidades avançadas em React, roteamento e arquitetura frontend responsiva.",
 // CATEGORIAS DE CONTATO
     contactTitle: "Contato",
-    contactSubtitle: "Estou em busca de novos desafios. Vamos conversar sobre tecnologia ou oportunidades de projetos?",
+    contactSubtitle: "Vamos conversar sobre tecnologia ou oportunidades de projetos?",
     cardLocation: "Localização",
     cardSocial: "Redes Profissionais",
     cardPhone: "Telefone",
@@ -136,7 +136,7 @@ const translations = {
     proj6Desc: "Development and deployment of a modern web gaming hub, migrating interactive components like Bingo and Hangman to Next.js to practice advanced React skills, routing, and responsive frontend architecture.",
 // Seção contato
     contactTitle: "Contact",
-    contactSubtitle: "I am looking for new challenges. Let's talk about technology or project opportunities?",
+    contactSubtitle: "Let's talk about technology or project opportunities?",
     cardLocation: "Location",
     cardSocial: "Professional Networks",
     cardPhone: "Phone",
@@ -202,7 +202,15 @@ export default function App() {
             <li><a href="#contato" onClick={closeMenu}>{t.navContact}</a></li>
             <li>
               <button id="language-toggle" className="btn-lang" onClick={() => { toggleLanguage(); closeMenu(); }}>
-                {lang === "pt" ? "EN" : "PT"}
+                {lang === "pt" ? (
+                  <>
+                    <span role="img" aria-label="English" style={{ marginRight: '5px' }}>🇺🇸</span> EN
+                  </>
+                ) : (
+                  <>
+                    <span role="img" aria-label="Português" style={{ marginRight: '5px' }}>🇧🇷</span> PT
+                  </>
+                )}
               </button>
             </li>
           </ul>
