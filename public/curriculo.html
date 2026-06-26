@@ -7,156 +7,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo - Mario Luís Alves Antonio</title>
     <link rel="stylesheet" href="curriculo.css">
+    <style>
+        /* Força o inglês a começar oculto por padrão no primeiro carregamento */
+    .lang-en { display: none; }
+
+    /* Estilos do Seletor de Idioma Flutuante (Não quebra o layout) */
+    .lang-switcher {
+        position: fixed;
+    }
+        /* Estilos do Seletor de Idioma Flutuante (Não quebra o layout) */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            z-index: 9999;
+            display: flex;
+            gap: 8px;
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #718096;
+            transition: all 0.2s ease;
+        }
+        .lang-btn.active {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+        }
+        
+        /* Oculta o idioma que não está ativo */
+        html[lang="en"] .lang-pt { display: none !important; }
+        html[lang="pt"] .lang-en { display: none !important; }
+
+        /* Regra para ocultar o seletor na hora de gerar o PDF/Imprimir */
+        @media print {
+            .lang-switcher { display: none !important; }
+        }
+    </style>
 </head>
 <body>
+
+<!-- Botão Seletor de Idioma -->
+<div class="lang-switcher">
+    <button class="lang-btn active" id="btn-pt" onclick="switchLanguage('pt')">🇧🇷 PT</button>
+    <button class="lang-btn" id="btn-en" onclick="switchLanguage('en')">🇺🇸 EN</button>
+</div>
 
 <div class="resume-container">
 
     <header>
         <h1>Mario Luís Alves Antonio</h1>
-
     </header>
 
     <section>
-        <h2>Objetivo - <span class="objtex">Desenvolvedor de Software / Analista de Sistemas</span></h2>
+        <h2 class="lang-pt">Objetivo - <span class="objtex">Desenvolvedor de Software / Analista de Sistemas</span></h2>
+        <h2 class="lang-en">Objective - <span class="objtex">Software Developer / Systems Analyst</span></h2>
     </section>
 
     <section>
-        <h2>Perfil Profissional</h2>
-        <p>
-            Profissional em transição para a área de Tecnologia da Informação, combinando sólida formação 
-            em Engenharia e Análise de Sistemas com vasta experiência na resolução de problemas complexos, 
-            gestão de projetos e liderança de equipes. Histórico prático no desenvolvimento de sistemas internos, 
-            incluindo arquitetura de banco de dados (MySQL/SQL), automação de processos e desenvolvimento de 
-            sistemas de CRM. Experiência em metodologias de melhoria contínua e facilidade de atuação 
-            em ambientes ágeis e multidisciplinares.
+        <h2>
+            <span class="lang-pt">Perfil Profissional</span>
+            <span class="lang-en">Professional Summary</span>
+        </h2>
+        <p class="lang-pt">
+            Profissional em transição consolidada para a área de Tecnologia da Informação, unindo uma sólida bagagem 
+            em Engenharia e Gestão de Projetos com mais de 20 anos de experiência na liderança de equipes, melhoria 
+            contínua e resolução de problemas complexos através do método PDCA. Histórico prático no desenvolvimento de 
+            sistemas internos, incluindo arquitetura de banco de dados relacionais (MySQL/SQL), automação de processos 
+            e desenvolvimento de sistemas de CRM. Excelentes habilidades interpessoais e facilidade de atuação em ambientes 
+            ágeis e multidisciplinares.
+        </p>
+        <p class="lang-en">
+            Professional successfully transitioning into Information Technology, blending a solid background in Engineering 
+            and Project Management with over 20 years of experience in leading multi-disciplinary teams, continuous 
+            improvement, and complex problem-solving through the PDCA method. Proven track record in internal systems development, 
+            including relational database architecture (MySQL/SQL), process automation, and CRM systems engineering. Strong 
+            interpersonal skills with a natural ability to thrive in agile, high-performance environments.
         </p>
     </section>
 
     <section>
-        <h2>Competências</h2>
+        <h2>
+            <span class="lang-pt">Competências</span>
+            <span class="lang-en">Core Skills</span>
+        </h2>
         <div class="skills-container">
             <div class="skills-card">
-                <h3>Hard Skills (Tecnologias)</h3>
+                <h3 class="lang-pt">Hard Skills (Tecnologias)</h3>
+                <h3 class="lang-en">Hard Skills (Technology)</h3>
                 <ul>
-                    <li>Linguagens: SQL, PHP, Java, JavaScript, C++, VBA / Visual Basic</li>
-                    <li>Web/Frontend: HTML5, CSS3, Estruturação de Interfaces</li>
-                    <li>Banco de Dados: MySQL, Modelagem Relacional, Querying</li>
-                    <li>Cloud: Google Cloud Platform (GCP), Infraestrutura e Redes</li>
+                    <li class="lang-pt">Linguagens: SQL, PHP, Java, JavaScript, C++, VBA / Visual Basic</li>
+                    <li class="lang-en">Languages: SQL, PHP, Java, JavaScript, C++, VBA / Visual Basic</li>
+                    
+                    <li class="lang-pt">Web/Frontend: HTML5, CSS3, Estruturação de Interfaces, SEO</li>
+                    <li class="lang-en">Web/Frontend: HTML5, CSS3, UI Architecture, SEO Optimization</li>
+                    
+                    <li class="lang-pt">Banco de Dados: MySQL, Modelagem Relacional, Otimização de Queries</li>
+                    <li class="lang-en">Databases: MySQL, Relational Modeling, Query Optimization</li>
+                    
+                    <li class="lang-pt">Cloud & Infra: Google Cloud Platform (GCP), Infraestrutura e Redes, Hardware</li>
+                    <li class="lang-en">Cloud & Infra: Google Cloud Platform (GCP), Infrastructure & Networks, Hardware</li>
                 </ul>
             </div>
             <div class="skills-card">
-                <h3>Soft Skills (Habilidades)</h3>
+                <h3 class="lang-pt">Soft Skills (Habilidades)</h3>
+                <h3 class="lang-en">Soft Skills (Interpersonal)</h3>
                 <ul>
-                    <li>Resolução de Problemas Complexos (Método PDCA)</li>
-                    <li>Gestão de Projetos e Liderança de Equipes</li>
-                    <li>Adaptabilidade e Aprendizado Autônomo Rápido</li>
-                    <li>Comunicação Assertiva e Negociação</li>
+                    <li class="lang-pt">Resolução de Problemas Complexos (Método PDCA)</li>
+                    <li class="lang-en">Complex Problem-Solving (PDCA Method)</li>
+                    
+                    <li class="lang-pt">Gestão de Projetos e Liderança de Equipes Multidiscinares</li>
+                    <li class="lang-en">Project Management & Multi-disciplinary Team Leadership</li>
+                    
+                    <li class="lang-pt">Adaptabilidade e Aprendizado Autônomo Ágil</li>
+                    <li class="lang-en">Adaptability & Rapid Autonomous Learning</li>
+                    
+                    <li class="lang-pt">Comunicação Assertiva, Negociação e Resolução de Conflitos</li>
+                    <li class="lang-en">Assertive Communication, Negotiation & Conflict Resolution</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>Formação Acadêmica</h2>
+        <h2>
+            <span class="lang-pt">Formação Acadêmica</span>
+            <span class="lang-en">Education</span>
+        </h2>
         <div class="edu-entry">
             <div class="edu-header">
-                <span>Análise e Desenvolvimento de Sistemas</span>
-                <span class="institution">UniCesumar - EAD</span>
+                <span class="lang-pt">Análise e Desenvolvimento de Sistemas</span>
+                <span class="lang-en">B.S. in Systems Analysis and Development</span>
+                <span class="institution">UniCesumar</span>
                 <span class="date-location">2023 - 2026</span>
             </div>
         </div>
         <div class="edu-entry">
             <div class="edu-header">
-                <span>MBA em Gerenciamento de Projetos</span>
-                <span class="institution">IBMEC - Salvador/BA -</span>
-                <span class="date-location">2018 - Incompleto</span>
+                <span class="lang-pt">MBA em Gerenciamento de Projetos</span>
+                <span class="lang-en">MBA in Project Management</span>
+                <span class="institution">IBMEC</span>
+                <span class="lang-pt date-location">2018 - Incompleto</span>
+                <span class="lang-en date-location">2018 - Partial</span>
             </div>
         </div>
         <div class="edu-entry">
             <div class="edu-header">
-                <span>Especialização em Marketing Organizacional (B2B)</span>
-                <span class="institution">UNICAMP - Campinas/SP</span>
+                <span class="lang-pt">Especialização em Marketing Organizacional (B2B)</span>
+                <span class="lang-en">Postgraduate Specialization in B2B Organizational Marketing</span>
+                <span class="institution">UNICAMP</span>
                 <span class="date-location">2009 - 2011</span>
             </div>
         </div>
         <div class="edu-entry">
             <div class="edu-header">
-                <span>Graduação em Engenharia Têxtil</span>
-                <span class="institution">UNESP - Americana/SP</span>
+                <span class="lang-pt">Graduação em Engenharia Têxtil</span>
+                <span class="lang-en">B.S. in Textile Engineering</span>
+                <span class="institution">UNESP</span>
                 <span class="date-location">1994 - 1997</span>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>Certificações em TI</h2>
+        <h2>
+            <span class="lang-pt">Certificações em TI</span>
+            <span class="lang-en">IT Certifications</span>
+        </h2>
         <ul class="certifications-list">
             <li>Networking & Security in Google Cloud</li>
             <li>Implement Load Balancing on Compute Engine (Skill Badge)</li>
-            <li>Infraestrutura no Google Cloud</li>
-            <li>Como configurar um ambiente de desenvolvimento de apps no Google Cloud</li>
+            <li class="lang-pt">Infraestrutura no Google Cloud</li>
+            <li class="lang-en">Infrastructure in Google Cloud</li>
+            <li class="lang-pt">Como configurar um ambiente de desenvolvimento de apps no Google Cloud</li>
+            <li class="lang-en">Configuring a Google Cloud Apps Development Environment</li>
             <li>Introduction to Data Analytics in Google Cloud (Google Skills)</li>
         </ul>
     </section>
 
     <section>
-        <h2>Experiência Profissional</h2>
+        <h2>
+            <span class="lang-pt">Experiência Profissional</span>
+            <span class="lang-en">Professional Experience</span>
+        </h2>
 
         <div class="job-entry">
             <div class="job-header">
-                <span class="job-title">Coordenador de Processos e Sistemas</span>
-                <span class="date-location">Abr 2015 — Mar 2020</span>
+                <span class="lang-pt job-title">Coordenador de Processos e Sistemas</span>
+                <span class="lang-en job-title">Processes & Systems Coordinator</span>
+                <span class="lang-pt date-location">Abr 2015 — Mar 2020</span>
+                <span class="lang-en date-location">Apr 2015 — Mar 2020</span>
             </div>
             <p class="company-name">Legumina Distribuidora</p>
-            <ul>
-                <li>Atuação no ciclo completo de desenvolvimento, implantação e manutenção do sistema interno de CRM corporativo utilizando Visual Basic (VB) e modelagem de banco de dados.</li>
-                <li>Desenvolvimento e estruturação técnica da interface web institucional utilizando padrões HTML, CSS e otimização de busca (SEO).</li>
-                <li>Colaboração direta na arquitetura de processos que impulsionaram o faturamento da empresa, que foi quadruplicado após dois anos de implantação.</li>
+            <ul class="lang-pt">
+                <li>Atuação no ciclo completo de desenvolvimento, implantação e manutenção do sistema interno de CRM corporativo utilizando Visual Basic (VB) e modelagem de banco de dados relacionais MySQL.</li>
+                <li>Desenvolvimento e estruturação técnica da interface web institucional utilizando padrões modernos de HTML, CSS e otimização de motores de busca (SEO).</li>
+                <li>Colaboração direta na arquitetura e otimização de processos que impulsionaram a eficiência e o faturamento corporativo, que quadruplicou após dois anos de implantação do sistema.</li>
+            </ul>
+            <ul class="lang-en">
+                <li>Managed the full lifecycle development, deployment, and technical maintenance of the internal corporate CRM system utilizing Visual Basic (VB) and MySQL relational database modeling.</li>
+                <li>Engineered and architected the technical structure of the company’s institutional web interface using clean HTML/CSS semantics and search engine optimization (SEO) standards.</li>
+                <li>Collaborated directly on workflow architecture optimizations that drove corporate efficiency, resulting in a 4x revenue growth within two years of system deployment.</li>
             </ul>
         </div>
 
         <div class="job-entry">
             <div class="job-header">
-                <span class="job-title">Gerente de Qualidade e Governança de Dados</span>
-                <span class="date-location">Jul 1995 — Fev 2014</span>
+                <span class="lang-pt job-title">Gerente de Qualidade e Governança de Dados</span>
+                <span class="lang-en job-title">Quality Assurance & Data Governance Manager</span>
+                <span class="lang-pt date-location">Jul 1995 — Fev 2014</span>
+                <span class="lang-en date-location">Jul 1995 — Feb 2014</span>
             </div>
             <p class="company-name">Vicunha Têxtil S/A</p>
-            <ul>
-                <li>Coordenação de rotinas de supervisão técnica com foco em gerenciamento de banco de dados estatísticos de controle de qualidade e geração automatizada de relatórios.</li>
-                <li>Liderança na implantação e homologação de novas tecnologias de monitoramento de processos industriais em múltiplas unidades produtivas.</li>
-                <li>Garantia da padronização documental, auditoria de processos técnicos e conformidade com diretrizes normativas ISO 9000.</li>
+            <ul class="lang-pt">
+                <li>Coordenação de rotinas de supervisão técnica com foco em gerenciamento de bancos de dados estatísticos de controle de qualidade laboratorial e automação de relatórios analíticos.</li>
+                <li>Liderança na implantação, parametrização e homologação de novas tecnologias de monitoramento e controle de processos industriais em múltiplas unidades produtivas.</li>
+                <li>Garantia da padronização documental, auditoria de processos técnicos e conformidade integral com as diretrizes normativas ISO 9000.</li>
+            </ul>
+            <ul class="lang-en">
+                <li>Coordinated technical supervisory routines focusing on the management of statistical quality control databases and automated analytical reporting across laboratory operations.</li>
+                <li>Led the deployment, parameter setting, and validation of new industrial process monitoring technologies across multiple production plants.</li>
+                <li>Ensured strict document standardization, audited technical processes, and maintained full compliance with ISO 9000 regulatory guidelines.</li>
             </ul>
         </div>
 
         <div class="job-entry">
             <div class="job-header">
-                <span class="job-title">Supervisor de Comunicação Digital</span>
-                <span class="date-location">Set 2014 — Jan 2015</span>
+                <span class="lang-pt job-title">Supervisor de Comunicação Digital</span>
+                <span class="lang-en job-title">Digital Communication Supervisor</span>
+                <span class="lang-pt date-location">Set 2014 — Jan 2015</span>
+                <span class="lang-en date-location">Sep 2014 — Jan 2015</span>
             </div>
             <p class="company-name">Sangati Berga S/A</p>
-            <ul>
-                <li>Responsável pela manutenção e atualização técnica das estruturas do portal corporativo através do desenvolvimento web com HTML.</li>
-                <li>Supervisão, formatação lógica e revisão técnica de manuais complexos de engenharia de produtos e maquinários industriais.</li>
+            <ul class="lang-pt">
+                <li>Responsável pela manutenção, gerenciamento de catálogo e atualização técnica das estruturas do portal corporativo através de desenvolvimento web focado em UX e SEO.</li>
+                <li>Supervisão, formatação lógica e revisão técnica de manuais complexos de engenharia de produtos e maquinários industriais de grande porte.</li>
+            </ul>
+            <ul class="lang-en">
+                <li>Responsible for technical maintenance, catalog expansion, and architecture updates of the corporate portal leveraging web development best practices focused on UX and SEO.</li>
+                <li>Supervised, structured, and technically reviewed complex product engineering and heavy industrial machinery blueprints and operation manuals.</li>
             </ul>
         </div>
     </section>
 
     <section>
-        <h2>Idiomas</h2>
+        <h2>
+            <span class="lang-pt">Idiomas</span>
+            <span class="lang-en">Languages</span>
+        </h2>
         <ul>
-            <li><strong>Inglês:</strong> Avançado / Fluente</li>
-            <li><strong>Espanhol:</strong> Avançado</li>
+            <li class="lang-pt"><strong>Inglês:</strong> Avançado / Fluente</li>
+            <li class="lang-en"><strong>English:</strong> Advanced / Fluent</li>
+            <li class="lang-pt"><strong>Espanhol:</strong> Avançado</li>
+            <li class="lang-en"><strong>Spanish:</strong> Advanced</li>
         </ul>
     </section>
+
     <section>
         <div class="contact-info">
-            Fortaleza - CE | (85) 99712-8493 | mlantonio@msn.com <br>
+            Fortaleza - CE, Brazil | (85) 99712-8493 | mlantonio@msn.com <br>
             <strong>LinkedIn:</strong> linkedin.com/in/mlaantonio | <strong>GitHub:</strong> github.com/Mlaantonio
         </div>
     </section>
 
 </div>
+
+<!-- Script Simples para Chaveamento de Idiomas -->
+<script>
+    function switchLanguage(lang) {
+        // Altera o atributo lang na tag html
+        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+        
+        // Altera a classe ativa nos botões
+        document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+        // Captura todos os elementos de cada idioma
+        const ptElements = document.querySelectorAll('.lang-pt');
+        const enElements = document.querySelectorAll('.lang-en');
+
+        // Faz o chaveamento real de exibição no display
+        if (lang === 'pt') {
+            ptElements.forEach(el => el.style.display = '');
+            enElements.forEach(el => el.style.display = 'none');
+        } else {
+            ptElements.forEach(el => el.style.display = 'none');
+            enElements.forEach(el => el.style.display = 'block'); // ou '' para manter o padrão (como li, span)
+            
+            // Ajuste fino para tags que não são bloco (como spans e links) não quebrarem linha
+            enElements.forEach(el => {
+                if (el.tagName === 'SPAN') el.style.display = 'inline';
+                if (el.tagName === 'LI') el.style.display = 'list-item';
+            });
+        }
+    }
+</script>
 
 </body>
 </html>
