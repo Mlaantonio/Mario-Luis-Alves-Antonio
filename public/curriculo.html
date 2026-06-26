@@ -302,15 +302,30 @@
             enElements.forEach(el => el.style.display = 'none');
         } else {
             ptElements.forEach(el => el.style.display = 'none');
-            enElements.forEach(el => el.style.display = 'block'); // ou '' para manter o padrão (como li, span)
             
-            // Ajuste fino para tags que não são bloco (como spans e links) não quebrarem linha
+            // Ajuste fino para manter o comportamento correto de cada tipo de tag
             enElements.forEach(el => {
                 if (el.tagName === 'SPAN') el.style.display = 'inline';
-                if (el.tagName === 'LI') el.style.display = 'list-item';
+                else if (el.tagName === 'LI') el.style.display = 'list-item';
+                else el.style.display = 'block';
             });
         }
     }
+
+    // NOVA FUNÇÃO: Executada automaticamente ao carregar a página
+    window.addEventListener('DOMContentLoaded', () => {
+        // Captura os parâmetros da URL (ex: ?lang=en)
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+
+        // Se o parâmetro for 'en', força a inicialização em Inglês
+        if (langParam === 'en') {
+            switchLanguage('en');
+        } else {
+            // Caso contrário (ou se for 'pt'), mantém o Português padrão
+            switchLanguage('pt');
+        }
+    });
 </script>
 
 </body>

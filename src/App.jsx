@@ -195,7 +195,7 @@ export default function App() {
             <li><a href="#habilidades" onClick={closeMenu}>{t.navSkills}</a></li>
             <li><a href="#portfolio" onClick={closeMenu}>{t.navPortfolio}</a></li>
             <li>
-              <a href="/curriculo.html" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
+              <a href={`/curriculo.html?lang=${lang}`} target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
                 {t.navResume}
               </a>
             </li>
