@@ -223,6 +223,11 @@ export default function App() {
           <h1>{t.heroTitle}<span>Mario</span></h1>
           <p>{t.heroSubtitle}</p>
           <a href="#portfolio" className="btn-primary">{t.heroBtn}</a>
+          <div className="badge-container">
+            <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+              <div className="badge-base LI-profile-badge" data-locale="pt_BR" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="mlaantonio" data-version="v1" >
+              </div>
+          </div>
         </div>
       </section>
 
