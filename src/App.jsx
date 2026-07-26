@@ -10,6 +10,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { GitHubCalendar } from 'react-github-calendar';
 
 // Dicionário completo com os textos em Português e Inglês
 const translations = {
@@ -167,6 +168,18 @@ export default function App() {
   // Função auxiliar para fechar o menu ao clicar em um link
   const closeMenu = () => setMenuOpen(false);
 
+  // Função para filtrar apenas os últimos 3 meses (90 dias)
+    const filtrarUltimos3Meses = (contributions) => {
+      const hoje = new Date();
+      // Subtrai 90 dias em milissegundos
+      const tresMesesAtras = new Date(hoje.getTime() - (90 * 24 * 60 * 60 * 1000));
+
+      return contributions.filter((dia) => {
+        const dataContribuicao = new Date(dia.date);
+        return dataContribuicao >= tresMesesAtras && dataContribuicao <= hoje;
+      });
+    };
+
   return (
     <div>
     {/* Menu de Navegação Fixo com Menu Hambúrguer */}
@@ -223,11 +236,6 @@ export default function App() {
           <h1>{t.heroTitle}<span>Mario</span></h1>
           <p>{t.heroSubtitle}</p>
           <a href="#portfolio" className="btn-primary">{t.heroBtn}</a>
-          <div className="badge-container">
-            <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-              <div className="badge-base LI-profile-badge" data-locale="pt_BR" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="mlaantonio" data-version="v1" >
-              </div>
-          </div>
         </div>
       </section>
 
@@ -236,13 +244,12 @@ export default function App() {
         <h2>{t.aboutTitle}</h2>
         <div className="about-content">
           <p>{t.aboutP1}</p>
-          <p>{t.aboutP2}
+          <p>{t.aboutP2}</p>
             <div style={{ marginTop: '20px' }}>
               <a href="/curriculo.html" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-block', marginLeft: '10px' }}>
                 {t.navResume}
               </a>
             </div>
-          </p>
         </div>
       </section>
       {/*-------------------------------------------------------------------------*/}
@@ -404,6 +411,80 @@ export default function App() {
       <section id="contato" className="section-container bg-light">
         <h2>{t.contactTitle}</h2>
         <p className="section-subtitle">{t.contactSubtitle}</p>
+        {/* Container dos Cards de Contato */}
+          <div className="badges-wrapper">
+            {/* Cartão do LinkedIn */}
+            <div className="linkedin-container">
+              <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+              <div 
+                className="badge-base LI-profile-badge" 
+                data-locale="pt_BR" 
+                data-size="medium" 
+                data-theme="dark" 
+                data-type="VERTICAL" 
+                data-vanity="mlaantonio" 
+                data-version="v1"
+              >
+              </div>
+            </div>
+            <div style={{ 
+              backgroundColor: '#000000', /* Fundo preto do card */
+              padding: '10px', 
+              borderRadius: '12px',
+              width: 'max-content', 
+              height: '300px',
+            }}>
+              
+              {/* Cabeçalho com a Logo GitHub */}
+              <div style={{ marginBottom: '20px', textAlign: 'left' }}>
+                <a 
+                  href="https://github.com/Mlaantonio" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <img 
+                    src="/logogithub.png" 
+                    alt="GitHub Logo" 
+                    style={{ height: '35px', width: 'auto', marginRight: '10px', verticalAlign: 'middle' }} 
+                  />
+                </a>
+              </div>
+
+              {/* Calendário */}
+              <GitHubCalendar 
+                username="Mlaantonio" 
+                transformData={filtrarUltimos3Meses} 
+                colorScheme="dark"
+                hideTotalCount={true}   /* Remove o texto "0 contributions in the last year" */
+                hideColorLegend={true}  /* Remove a barra de cores "Less --- More" */
+                showWeekdayLabels={false} /* Mostra os dias da semana (S, T, Q, Q, S, S, D) */
+                blockSize={8}     /* Diminui os quadradinhos (teste valores entre 8 e 12) */
+                blockMargin={6}    /* Adiciona espaço entre os quadradinhos */
+              />
+              
+            </div>
+
+              {/* Card do WhatsApp */}
+            <div className="whatsapp-container">
+              <div className="whatsapp-header">
+                <a 
+                  href="https://wa.me/5585997128493"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <img 
+                    src="/logowhatsapp.png" 
+                    alt="WhatsApp Logo" 
+                    style={{ height: '35px', width: 'auto', marginRight: '10px', verticalAlign: 'middle' }} 
+                  />
+                </a>
+              </div>
+              <div className="whatsapp-card">
+                <a href="https://wa.me/5585997128493" target="_blank" rel="noopener noreferrer">+55 85 99712-8493
+                </a>
+              </div>
+            </div>
+          </div>
         <div className="contact-cards">
           <div className="contact-card">
             <h3>{t.cardLocation}</h3>
@@ -433,7 +514,7 @@ export default function App() {
 
       {/* Rodapé */}
       <footer>
-        <p>© 2026 Mario Luís Alves Antonio. {t.footerText}</p>
+        <p>©2026 Mario Luís Alves Antonio by Mario Coldor. {t.footerText}</p>
       </footer>
     </div>
   );

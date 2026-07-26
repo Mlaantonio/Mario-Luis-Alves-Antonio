@@ -227,25 +227,6 @@ body {
     background-color: #3182ce;
 }
 
-.badge-container {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Garante que o contêiner ocupe a tela toda */
-}
-
-.badge-base {
-    width: 250px; /* Trava a largura no tamanho exato do cartão do LinkedIn */
-    margin: 0 auto; /* Centraliza a div caso o flexbox do pai falhe */
-}
-
-/* Regra extra de segurança para forçar o iframe a respeitar o tamanho do pai */
-.badge-base iframe {
-    width: 100% !important;
-    margin: 0 auto !important;
-}
-
 /* Layout Geral das Seções */
 .section-container {
     max-width: 1200px;
@@ -469,6 +450,89 @@ footer {
     padding: 30px 20px;
     font-size: 0.9rem;
     opacity: 0.9;
+}
+
+/* O wrapper principal */
+.badges-wrapper {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row; /* Força os elementos a ficarem na mesma linha */
+    flex-wrap: wrap; /* Permite que eles empilhem apenas se a tela for muito pequena (celular) */
+    justify-content: center; /* Centraliza os dois no meio da tela */
+    gap: 0px; /* Cria o espaço entre o LinkedIn e o GitHub */
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* O contêiner do LinkedIn */
+.linkedin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content; /* O SEGREDO ESTÁ AQUI: impede que a div ocupe 100% da tela invisivelmente */
+    max-width: 80%;
+}
+
+/* A base do script do LinkedIn */
+.badge-base {
+    display: flex;
+    justify-content: center;
+    width: max-content; 
+}
+
+.linkedin-container, .github-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content;
+}
+
+/* Puxa o calendário inteiro para a esquerda */
+.react-activity-calendar {
+    margin-left: -30px !important; /* Vá ajustando esse número (-15px, -25px...) até alinhar com a logo */
+    width: 300px !important; /* Ajusta a largura do calendário para caber no espaço */
+}
+
+/* Mira especificamente no rodapé (o quadro azul) do calendário do GitHub */
+.react-activity-calendar__footer {
+    padding: 1px 1px !important; /* Reduz o espaço interno, diminuindo o tamanho geral do quadro */
+    margin-top: 10px !important;  /* Aproxima o quadro dos quadradinhos verdes */
+    font-size: 12px !important;   /* Diminui a fonte do texto "Less/More" */
+    width: 90% !important; /* Garante que o rodapé ocupe toda a largura do calendário */
+    margin-left: 40px !important; /* Ajusta a posição horizontal do rodapé */
+}
+
+/* Mira especificamente no texto central "83 contributions in the last year" */
+.react-activity-calendar__count {
+    font-size: 13px !important;   /* Deixa esse texto um pouquinho menor */
+    margin-bottom: 5px !important; /* Reduz o espaço entre o texto e as barrinhas de cor */
+}
+
+/* Diminui o tamanho das barrinhas de cor (Less - More) */
+.react-activity-calendar__legend-colors svg {
+    width: 30px !important;
+    height: 10px !important;
+}
+
+.whatsapp-container {
+    display: flex; /* Garante que o cartão do WhatsApp fique alinhado com o calendário */
+    flex-direction: column; /* Mantém o conteúdo do cartão do WhatsApp em coluna */
+    text-align: center; /* Centraliza o conteúdo do cartão do WhatsApp */
+    direction: justify; /* Garante que o cartão do WhatsApp fique alinhado com o calendário */
+    background-color: black;
+    border-radius: 10px;
+    justify-content: top;
+    align-items: top; /* Alinha o conteúdo do cartão do WhatsApp no topo */
+    width: 260px; /* Faz com que o cartão do WhatsApp se ajuste ao tamanho do conteúdo */
+    height: 300px; /* Ajusta a altura do cartão do WhatsApp */
+    margin-left: 50px; /* Adiciona um pequeno espaçamento entre o calendário e o cartão do WhatsApp */
+}
+
+.whatsapp-header {
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 12px;
+    align-items: top;
 }
 
 /* Responsividade Básica para Celulares */
