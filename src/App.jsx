@@ -20,6 +20,7 @@ const translations = {
     navSkills: "Habilidades",
     navPortfolio: "Portfólio",
     navResume: "Currículo",
+    navJson: "Baixar JSON Currículo (Formato ATS)",
     navContact: "Contato",
 // CATEGORIAS DE BOAS VINDAS
     heroTitle: "Olá, eu sou o ",
@@ -27,7 +28,7 @@ const translations = {
     heroBtn: "Ver Meus Projetos",
 // CATEGORIAS SEÇÃO SOBRE
     aboutTitle: "Sobre Mim / Histórico",
-    aboutP1: "Sou um profissional em transição consolidada para a área de Tecnologia da Informação, unindo uma sólida bagagem em Engenharia e Gestão de Projetos com mais de 20 anos de experiência na liderança de equipes, melhoria contínua e resolução de problemas complexos através do método PDCA. Minha afinidade com a tecnologia é de longa data: sempre atuei diretamente no desenvolvimento de sistemas internos de CRM utilizando Visual Basic (VB), modelagem de arquitetura de bancos de dados relacionais e construção de interfaces web.",
+    aboutP1: "Analista de Sistemas em formação e desenvolvedor full-stack (PHP, React, Java). Possui visão multidisciplinar como Engenheiro Têxtil (UNESP) com pós-graduações em Marketing e RH (UNICAMP). Combina essa base de negócios com 5 anos de experiência coordenando projetos na indústria e comércio, traduzindo necessidades corporativas em soluções técnicas eficientes. Busca recolocação em equipes de desenvolvimento ágil de software para agregar valor técnico e estratégico imediato.",
     aboutP2: "Atualmente, amplio essa atuação técnica através da graduação em Análise e Desenvolvimento de Sistemas e por certificações contínuas em arquitetura e infraestrutura de computação em nuvem (Google Cloud Platform), com foco em ambientes escaláveis e redes seguras. Com histórico consolidado nos mercados de varejo corporativo e B2B, combino proficiência técnica sênior com visão analítica para arquitetar soluções que geram eficiência operacional e real crescimento de negócios.",
 // CATEGORIAS DE HABILIDADES
     skillsTitle: "Minhas Habilidades",
@@ -75,9 +76,8 @@ const translations = {
 // CATEGORIAS DE CONTATO
     contactTitle: "Contato",
     contactSubtitle: "Vamos conversar sobre tecnologia ou oportunidades de projetos?",
-    cardLocation: "Localização",
-    cardSocial: "Redes Profissionais",
-    cardPhone: "Telefone",
+    cardLinkedin: "Desenvolvedor de Software & Analista de Sistmas | Full Stack (React, PHP, SQL) | Cloud (GCP) | Ex-engenheiro",
+    teleTitulo: "Telefone",
     footerText: "Desenvolvido com React, HTML5 e CSS3."
   },
   en: {
@@ -85,12 +85,13 @@ const translations = {
     navSkills: "Skills",
     navPortfolio: "Portfolio",
     navResume: "Resume",
+    navJson: "Download JSON Resume (ATS Format)",
     navContact: "Contact",
     heroTitle: "Hi, I am ",
     heroSubtitle: "Software Developer | Systems Analyst | Full Stack (React/PHP/SQL) | Cloud (GCP) | Former Engineer",
     heroBtn: "View My Projects",
     aboutTitle: "About Me / History",
-    aboutP1: "I am a professional successfully transitioning into Information Technology, blending a solid background in Engineering and Project Management with over 20 years of experience in leading multi-disciplinary teams, continuous improvement, and complex problem-solving through the PDCA method. My affinity for technology runs deep: I have long been directly involved in developing internal corporate CRM systems using Visual Basic (VB), modeling relational database architectures, and building web interfaces.",
+    aboutP1: "Systems Analyst in training and full-stack developer (PHP, React, Java). Brings a multidisciplinary perspective as a Textile Engineer (UNESP) with postgraduate degrees in Marketing and HR (UNICAMP). Combines this business foundation with 5 years of experience coordinating projects in industry and commerce, translating corporate needs into efficient technical solutions. Seeking a position in agile software development teams to add immediate technical and strategic value.",
     aboutP2: "Currently, I am expanding my technical capabilities through a degree in Systems Analysis and Development and continuous certifications in cloud architecture and infrastructure (Google Cloud Platform), focusing on scalable environments and secure networks. With a proven track record in B2B and retail corporate environments, I combine senior-level technical proficiency with an analytical mindset to architect solutions that drive operational efficiency and real business growth.",
 // SKILLS CATEGORIES ENGLISH
     skillsTitle: "My Skills",
@@ -138,9 +139,8 @@ const translations = {
 // Seção contato
     contactTitle: "Contact",
     contactSubtitle: "Let's talk about technology or project opportunities?",
-    cardLocation: "Location",
-    cardSocial: "Professional Networks",
-    cardPhone: "Phone",
+    cardLinkedin: "Software Developer & Systems Analyst | Full Stack (React, PHP, SQL) | Cloud (GCP) | Former Engineer",
+    teleTitulo: "Call",
     footerText: "Developed with React, HTML5, and CSS3."
   }
 };
@@ -180,8 +180,36 @@ export default function App() {
       });
     };
 
+      const jsonLdData = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mario Luís Alves Antonio",
+      "alternateName": "Mario Coldor",
+      "jobTitle": "Software Developer & Systems Analyst",
+      "description": "Analista de Sistemas em formação e desenvolvedor full-stack (PHP, React, Java). Possui visão multidisciplinar como Engenheiro Têxtil com pós-graduações em Marketing e RH.",
+      "url": "https://br.linkedin.com/in/mlaantonio",
+      "sameAs": [
+        "https://github.com/mlaantonio"
+      ],
+      "email": "mailto:mlantonio@msn.com",
+      "telephone": "+55-85-99712-8493",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Silva Jatahy, 1245 - AP 903, Meireles",
+        "addressLocality": "Fortaleza",
+        "addressRegion": "CE",
+        "postalCode": "60165-070",
+        "addressCountry": "BR"
+      },
+      "knowsAbout": ["PHP", "React", "Java", "MySQL", "Google Cloud Platform", "VBA", "HTML", "CSS"]
+    };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+      />
     {/* Menu de Navegação Fixo com Menu Hambúrguer */}
       <header className="navbar-header">
         <nav className="navbar-container">
@@ -248,6 +276,9 @@ export default function App() {
             <div style={{ marginTop: '20px' }}>
               <a href="/curriculo.html" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ display: 'inline-block', marginLeft: '10px' }}>
                 {t.navResume}
+              </a>
+              <a href="/curriculo.json" download="Mario_Antonio_Resume.json" className="btn-primary"  style={{ display: 'inline-block', marginLeft: '10px'}}>
+                {t.navJson}
               </a>
             </div>
         </div>
@@ -413,29 +444,33 @@ export default function App() {
         <p className="section-subtitle">{t.contactSubtitle}</p>
         {/* Container dos Cards de Contato */}
           <div className="badges-wrapper">
-            {/* Cartão do LinkedIn */}
-            <div className="linkedin-container">
-              <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-              <div 
-                className="badge-base LI-profile-badge" 
-                data-locale="pt_BR" 
-                data-size="medium" 
-                data-theme="dark" 
-                data-type="VERTICAL" 
-                data-vanity="mlaantonio" 
-                data-version="v1"
-              >
+
+            {/* LinkedIn card */}
+            <div className="linkedin-card">
+              <div style={{ marginBottom: '20px', textAlign: 'left' }}>
+                <a 
+                  href="https://linkedin.com/in/mlaantonio" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <img 
+                    src="/logolinkedin.png" 
+                    alt="LinkedIn Logo" 
+                    style={{ height: '35px', width: 'auto', marginRight: '10px', verticalAlign: 'middle' }} 
+                  />
+                </a>
               </div>
+                <div>
+                  <p>
+                    {t.cardLinkedin}
+                  </p>
+                </div>
+                  <hr className="linha-divisoria" />
+
+
             </div>
-            <div style={{ 
-              backgroundColor: '#000000', /* Fundo preto do card */
-              padding: '10px', 
-              borderRadius: '12px',
-              width: 'max-content', 
-              height: '300px',
-            }}>
-              
-              {/* Cabeçalho com a Logo GitHub */}
+            {/* GitHub Card */}
+            <div className="github-card">
               <div style={{ marginBottom: '20px', textAlign: 'left' }}>
                 <a 
                   href="https://github.com/Mlaantonio" 
@@ -450,7 +485,7 @@ export default function App() {
                 </a>
               </div>
 
-              {/* Calendário */}
+            {/* GitHub Calendar */}
               <GitHubCalendar 
                 username="Mlaantonio" 
                 transformData={filtrarUltimos3Meses} 
@@ -465,7 +500,8 @@ export default function App() {
             </div>
 
               {/* Card do WhatsApp */}
-            <div className="whatsapp-container">
+            <div className="whatsapp-card">
+
               <div className="whatsapp-header">
                 <a 
                   href="https://wa.me/5585997128493"
@@ -479,37 +515,42 @@ export default function App() {
                   />
                 </a>
               </div>
-              <div className="whatsapp-card">
+              <div className="button-card">
                 <a href="https://wa.me/5585997128493" target="_blank" rel="noopener noreferrer">+55 85 99712-8493
+                </a>
+              </div>
+
+                <hr className="linha-divisoria" />
+
+                <div className='whatsapp-header'>
+                <a 
+                  href="https://wa.me/5585997128493"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <img 
+                    src="/logofone.png" 
+                    alt="WhatsApp Logo" 
+                    style={{ height: '35px', width: 'auto', marginRight: '10px', verticalAlign: 'middle' }} 
+                  />{t.teleTitulo}
+                </a>
+                </div>
+            </div>
+
+              {/* Card do E-mail */}
+            <div className="email-card"> 
+              <div className='email-header'>
+                <a href="mailto:mario.a.coldor@gmail.com" target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src="/logoemail.png" 
+                    alt="E-mail Logo" 
+                    style={{ height: '35px', width: 'auto', marginLeft: '0px' }} 
+                  />
                 </a>
               </div>
             </div>
           </div>
-        <div className="contact-cards">
-          <div className="contact-card">
-            <h3>{t.cardLocation}</h3>
-            <p><a href="https://maps.app.goo.gl/SxFx98keFcSTh9N96" target="_blank" rel="noopener noreferrer">Fortaleza - Ceará, Brasil</a></p>
-          </div>
-          <div className="contact-card">
-            <h3>E-mail</h3>
-            <p><a href="mailto:mlantonio@msn.com">mlantonio@msn.com</a></p>
-          </div>
-          <div className="contact-card">
-            <h3>{t.cardSocial}</h3>
-            <p>
-              <a href="https://www.linkedin.com/in/mlaantonio" target="_blank" rel="noopener noreferrer">LinkedIn</a> | {' '}
-              <a href="https://github.com/Mlaantonio" target="_blank" rel="noopener noreferrer">GitHub</a> | {' '}
-              <a href="https://www.instagram.com/mariocoldor" target="_blank" rel="noopener noreferrer">Instagram</a>
-            </p>
-          </div>
-          <div className="contact-card">
-            <h3>{t.cardPhone}</h3>
-            <p>
-              <a href="https://wa.me/5585997128493" target="_blank" rel="noopener noreferrer">Whatsapp</a> | {' '}
-              <a href="tel:+5585997128493" target="_blank" rel="noopener noreferrer">Celular</a>
-            </p>
-          </div>
-        </div>
+          
       </section>
 
       {/* Rodapé */}

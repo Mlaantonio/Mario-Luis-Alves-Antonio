@@ -1,0 +1,129 @@
+{
+  "basics": {
+    "name": "Mario Luís Alves Antonio",
+    "label": "Analista de Sistemas & Desenvolvedor Full-Stack",
+    "email": "mario.a.coldor@msn.com",
+    "phone": "(85) 99712-8493",
+    "url": "http://br.linkedin.com/in/mlaantonio",
+    "summary": "Analista de Sistemas em formação e desenvolvedor full-stack (PHP, React, Java). Possui visão multidisciplinar como Engenheiro Têxtil (UNESP) com pós-graduações em Marketing e RH (UNICAMP). Combina essa base de negócios com 5 anos de experiência coordenando projetos na indústria e comércio, traduzindo necessidades corporativas em soluções técnicas eficientes. Busca recolocação em equipes de desenvolvimento ágil de software para agregar valor técnico e estratégico imediato.",
+    "location": {
+      "address": "Rua Silva Jatahy, 1245 - AP 903, Meireles",
+      "postalCode": "60165-070",
+      "city": "Fortaleza",
+      "region": "CE",
+      "countryCode": "BR"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "mlaantonio",
+        "url": "http://br.linkedin.com/in/mlaantonio"
+      },
+      {
+        "network": "GitHub",
+        "username": "Mario Coldor",
+        "url": "https://github.com/mlaantonio"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Spatule Patisserie",
+      "position": "Gerente Geral",
+      "location": "Fortaleza, CE",
+      "startDate": "2020-03-01",
+      "endDate": "2023-08-01",
+      "summary": "Gestão de operações diárias, financeira, controle de custos e marketing. Encabeçou o desenvolvimento da loja de e-commerce e integração com iFood."
+    },
+    {
+      "company": "Legumina Dist. Ltda",
+      "position": "Coordenador de Processos",
+      "location": "Fortaleza, CE",
+      "startDate": "2015-04-01",
+      "endDate": "2020-03-01",
+      "summary": "Desenvolvimento de site (HTML/CSS), sistema de CRM (VB) e publicidade (SEO). Contribuiu para aumento de faturamento em mais de 600%."
+    },
+    {
+      "company": "Sangati Berga S/A",
+      "position": "Supervisor de Marketing",
+      "location": "Fortaleza, CE",
+      "startDate": "2014-09-01",
+      "endDate": "2015-01-01",
+      "summary": "Gestão de comunicação, identidade visual (HTML/CSS) e reestruturação do site. Aumento de 500% no faturamento."
+    },
+    {
+      "company": "Vicunha Têxtil S/A",
+      "position": "Coordenador de Metrologia / Gerente de Qualidade",
+      "location": "Fortaleza, CE / RN",
+      "startDate": "1995-07-01",
+      "endDate": "2014-02-01",
+      "summary": "Progressão de carreira (Estagiário a Coordenador). Implantação de tecnologias de monitoramento, análise de dados estatísticos e garantia da qualidade."
+    }
+  ],
+  "education": [
+    {
+      "institution": "UniCesumar - EAD",
+      "area": "Análise e Desenvolvimento de Sistemas",
+      "studyType": "Pós-graduação",
+      "startDate": "2023-01-01",
+      "endDate": "2026-12-31"
+    },
+    {
+      "institution": "IBEMEC - Adtalem",
+      "area": "Gerenciamento de Projetos",
+      "studyType": "MBA (Incompleto)",
+      "endDate": "2018-12-31"
+    },
+    {
+      "institution": "Universidade Estadual de Campinas - UNICAMP",
+      "area": "Marketing Organizacional (B2B)",
+      "studyType": "Especialização",
+      "startDate": "2009-01-01",
+      "endDate": "2011-12-31"
+    },
+    {
+      "institution": "Universidade Estadual Júlio de Mesquita Filho - UNESP",
+      "area": "Engenharia Têxtil",
+      "studyType": "Graduação",
+      "startDate": "1994-01-01",
+      "endDate": "1997-12-31"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Linguagens de Programação",
+      "keywords": ["VBA", "C", "Java", "PHP", "React", "MySQL", "HTML", "CSS"]
+    },
+    {
+      "name": "Ferramentas e Tecnologias",
+      "keywords": ["Docker", "Git", "Inteligência Artificial (Automação)", "Pacote Office Avançado", "Google Cloud Platform"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Inglês",
+      "fluency": "Avançado"
+    },
+    {
+      "language": "Espanhol",
+      "fluency": "Avançado"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Introduction to Data Analytics in Google Cloud",
+      "date": "2025-01-01",
+      "issuer": "Google Skills"
+    },
+    {
+      "name": "SEO e Google Adwords",
+      "date": "2011-01-01",
+      "issuer": "UNICAMP"
+    },
+    {
+      "name": "Auditor ISO 9000 e 14000",
+      "date": "2007-01-01",
+      "issuer": "SENAI"
+    }
+  ]
+}

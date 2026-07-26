@@ -456,41 +456,40 @@ footer {
 .badges-wrapper {
     align-items: stretch;
     display: flex;
-    flex-direction: row; /* Força os elementos a ficarem na mesma linha */
-    flex-wrap: wrap; /* Permite que eles empilhem apenas se a tela for muito pequena (celular) */
-    justify-content: center; /* Centraliza os dois no meio da tela */
-    gap: 0px; /* Cria o espaço entre o LinkedIn e o GitHub */
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
     width: 100%;
     margin-top: 40px;
+    color: #60899c; /* Muda a cor de todo o texto */
 }
 
-/* O contêiner do LinkedIn */
-.linkedin-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: max-content; /* O SEGREDO ESTÁ AQUI: impede que a div ocupe 100% da tela invisivelmente */
-    max-width: 80%;
-}
-
-/* A base do script do LinkedIn */
-.badge-base {
-    display: flex;
-    justify-content: center;
-    width: max-content; 
-}
-
-.linkedin-container, .github-container {
+.linkedin-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: max-content;
+    width: 250px;
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.github-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px; /* Ajusta a largura do cartão do GitHub */
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 /* Puxa o calendário inteiro para a esquerda */
 .react-activity-calendar {
-    margin-left: -30px !important; /* Vá ajustando esse número (-15px, -25px...) até alinhar com a logo */
-    width: 300px !important; /* Ajusta a largura do calendário para caber no espaço */
+    align-items: center;
+    width: max-content !important; /* Ajusta a largura do calendário para caber no espaço */
+    justify-content: center;
 }
 
 /* Mira especificamente no rodapé (o quadro azul) do calendário do GitHub */
@@ -498,8 +497,8 @@ footer {
     padding: 1px 1px !important; /* Reduz o espaço interno, diminuindo o tamanho geral do quadro */
     margin-top: 10px !important;  /* Aproxima o quadro dos quadradinhos verdes */
     font-size: 12px !important;   /* Diminui a fonte do texto "Less/More" */
-    width: 90% !important; /* Garante que o rodapé ocupe toda a largura do calendário */
-    margin-left: 40px !important; /* Ajusta a posição horizontal do rodapé */
+    width: 95% !important; /* Garante que o rodapé ocupe toda a largura do calendário */
+    
 }
 
 /* Mira especificamente no texto central "83 contributions in the last year" */
@@ -514,7 +513,7 @@ footer {
     height: 10px !important;
 }
 
-.whatsapp-container {
+.whatsapp-card {
     display: flex; /* Garante que o cartão do WhatsApp fique alinhado com o calendário */
     flex-direction: column; /* Mantém o conteúdo do cartão do WhatsApp em coluna */
     text-align: center; /* Centraliza o conteúdo do cartão do WhatsApp */
@@ -523,16 +522,87 @@ footer {
     border-radius: 10px;
     justify-content: top;
     align-items: top; /* Alinha o conteúdo do cartão do WhatsApp no topo */
-    width: 260px; /* Faz com que o cartão do WhatsApp se ajuste ao tamanho do conteúdo */
+    width: 250px; /* Faz com que o cartão do WhatsApp se ajuste ao tamanho do conteúdo */
     height: 300px; /* Ajusta a altura do cartão do WhatsApp */
-    margin-left: 50px; /* Adiciona um pequeno espaçamento entre o calendário e o cartão do WhatsApp */
+    padding: 20px; /* Adiciona espaçamento interno para o conteúdo do cartão do WhatsApp */
 }
 
 .whatsapp-header {
     margin-bottom: 20px;
     text-align: left;
-    padding: 12px;
     align-items: top;
+}
+
+.button-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #323332; /* Cor verde do WhatsApp */
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-card:hover {
+    background-color: #1f3752; 
+    transform: translateY(-3px); /* Levanta o botão 3 pixels para cima */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Cria uma sombra embaixo */
+}
+
+.button-card a {
+    color: #60899c; 
+    text-decoration: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* Deixa a mudança de cor do texto suave também */
+    transition: color 0.3s ease; 
+}
+
+.button-card:hover a {
+    color: #ffffff; /* Força o texto a ficar branco */
+}
+
+.linha-divisoria {
+    width: 80%;            /* Define a largura para 80% da seção/tela */
+    margin: 20px auto;     /* 40px de espaço em cima/baixo e 'auto' centraliza a linha horizontalmente */
+    border: 0;             /* Remove a borda 3D feia padrão dos navegadores antigos */
+    border-top: 2px solid #323332; /* Define a espessura (2px), o estilo (solid) e a cor da linha */
+    opacity: 0.5;          /* Opcional: deixa a linha levemente transparente para ficar mais elegante */
+}
+
+
+.email-card {
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    align-items: left;
+    width: 250px; /* Ajusta a largura do cartão de e-mail */
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.email-header {
+    align-items: left;
+    text-align: left;
+}
+
+.map-card {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 250px; /* Ajusta a largura do cartão de e-mail */
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;    
 }
 
 /* Responsividade Básica para Celulares */
