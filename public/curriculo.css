@@ -13,11 +13,12 @@ body {
     color: #333333;
     line-height: 1.6;
     padding: 40px 20px;
+    overflow-x: auto; /* Garante que, se o zoom do celular falhar, o usuário possa rolar para os lados */
 }
 
-/* Container Principal (Aparência de folha A4 estruturada) */
 .resume-container {
-    max-width: 850px;
+    width: 210mm; /* Largura exata de uma folha A4 */
+    min-height: 297mm; /* Altura mínima de uma folha A4 */
     margin: 0 auto;
     background-color: #ffffff;
     padding: 50px;
