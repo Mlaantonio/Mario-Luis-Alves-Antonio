@@ -255,9 +255,11 @@ h2 {
 h2::after {
     content: '';
     position: absolute;
+    margin-left: 25%; 
+    transform: translateX(-10%);
     left: 0;
     bottom: 0;
-    width: 50px;
+    width: 60%;
     height: 4px;
     background-color: #4299e1;
     border-radius: 2px;
@@ -475,6 +477,11 @@ footer {
     padding: 20px;
 }
 
+.linkedin-text {
+    line-height: 120%;
+}
+
+
 .github-card {
     display: flex;
     flex-direction: column;
@@ -533,6 +540,33 @@ footer {
     align-items: top;
 }
 
+.tele-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.tele-title a {
+    text-decoration: none !important;
+}
+
+.map-logo {
+    margin-left: 0%;
+    align-items: left;
+    text-align: left;
+    text-decoration: none;
+}
+
+.map-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.map-title a {
+    text-decoration: none !important;
+}
+
 .button-card {
     display: flex;
     justify-content: center;
@@ -568,11 +602,12 @@ footer {
 
 .button-card:hover a {
     color: #ffffff; /* Força o texto a ficar branco */
+    text-decoration: none;
 }
 
 .linha-divisoria {
     width: 80%;            /* Define a largura para 80% da seção/tela */
-    margin: 20px auto;     /* 40px de espaço em cima/baixo e 'auto' centraliza a linha horizontalmente */
+    margin: 15px auto;     /* espaço em cima/baixo e 'auto' centraliza a linha horizontalmente */
     border: 0;             /* Remove a borda 3D feia padrão dos navegadores antigos */
     border-top: 2px solid #323332; /* Define a espessura (2px), o estilo (solid) e a cor da linha */
     opacity: 0.5;          /* Opcional: deixa a linha levemente transparente para ficar mais elegante */

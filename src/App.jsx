@@ -460,12 +460,16 @@ export default function App() {
                   />
                 </a>
               </div>
-                <div>
+                <div className='linkedin-text'>
                   <p>
                     {t.cardLinkedin}
                   </p>
                 </div>
                   <hr className="linha-divisoria" />
+              <div className="button-card">
+                <a href="https://linkedin.com/in/mariocoldor" target="_blank" rel="noopener noreferrer">Perfil Linkedin
+                </a>
+              </div>
 
 
             </div>
@@ -496,45 +500,46 @@ export default function App() {
                 blockSize={8}     /* Diminui os quadradinhos (teste valores entre 8 e 12) */
                 blockMargin={6}    /* Adiciona espaço entre os quadradinhos */
               />
-              
             </div>
 
-              {/* Card do WhatsApp */}
-            <div className="whatsapp-card">
+                {/* Card do WhatsApp */}
+              <div className="whatsapp-card">
 
-              <div className="whatsapp-header">
-                <a 
-                  href="https://wa.me/5585997128493"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <img 
-                    src="/logowhatsapp.png" 
-                    alt="WhatsApp Logo" 
-                    style={{ height: '35px', width: 'auto', marginRight: '10px', verticalAlign: 'middle' }} 
-                  />
-                </a>
-              </div>
-              <div className="button-card">
-                <a href="https://wa.me/5585997128493" target="_blank" rel="noopener noreferrer">+55 85 99712-8493
-                </a>
-              </div>
-
-                <hr className="linha-divisoria" />
-
-                <div className='whatsapp-header'>
-                <a 
-                  href="https://wa.me/5585997128493"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <img 
-                    src="/logofone.png" 
-                    alt="WhatsApp Logo" 
-                    style={{ height: '35px', width: 'auto', marginRight: '10px', verticalAlign: 'middle' }} 
-                  />{t.teleTitulo}
-                </a>
+                <div className="whatsapp-header">
+                  <a 
+                    href="https://wa.me/5585997128493"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <img 
+                      src="/logowhatsapp.png" 
+                      alt="WhatsApp Logo" 
+                      style={{ height: '35px', width: 'auto', marginRight: '10px', verticalAlign: 'middle' }} 
+                    />
+                  </a>
                 </div>
+                <div className="button-card">
+                  <a href="https://wa.me/5585997128493" target="_blank" rel="noopener noreferrer">+55 85 99712-8493
+                  </a>
+                </div>
+              <hr className="linha-divisoria" />
+                  <div className='whatsapp-header'>
+                  <a 
+                    href="https://wa.me/5585997128493"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <div className='tele-title'><img 
+                      src="/logofone.png" 
+                      alt="telefone Logo" 
+                      style={{ height: '35px', width: 'auto', marginRight: '10px', verticalAlign: 'middle' }} 
+                    />{t.teleTitulo}</div>
+                  </a>
+                    <div className="button-card">
+                      <a href="tel:+5585997128493" style={{textDecoration:'none' }}>+55 85 99712-8493
+                      </a>
+                    </div>                  
+                  </div>
             </div>
 
               {/* Card do E-mail */}
@@ -544,11 +549,61 @@ export default function App() {
                   <img 
                     src="/logoemail.png" 
                     alt="E-mail Logo" 
-                    style={{ height: '35px', width: 'auto', marginLeft: '0px' }} 
+                    style={{ height: '35px', width: 'auto', marginLeft: '0px', marginBottom: '10px' }} 
                   />
                 </a>
+                  <div className="button-card">
+                  <a href="mailto:mario.a.coldor@gmail.com" target="_blank" rel="noopener noreferrer" style={{fontSize:'small'}}>mario.a.coldor@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
+
+              {/*Card Map */}
+            <div className='map-card'>
+                <div className='map-logo'>
+                    <a href="https://maps.app.goo.gl/YdpM4SQuM3chaC4t6" target="_blank" rel="noopener noreferrer">
+                      <div className='map-title'><img 
+                        src="/logomap.png" 
+                        alt="Map Logo" 
+                        style={{ height: '35px', width: 'auto', marginLeft: '0px' }} 
+                      />
+                      </div>
+                    </a>
+                </div>
+              <hr className="linha-divisoria" />
+                <div>
+                    <a href="https://maps.app.goo.gl/YdpM4SQuM3chaC4t6" target="_blank" rel="noopener noreferrer">
+                      <div className='map-title'><img 
+                        src="/logobra.png" 
+                        alt="Mapa Brasil" 
+                        style={{ height: '30px', width: 'auto', marginLeft: '0px' }} 
+                      />
+                      </div>
+                    </a>
+                </div>
+              <hr className="linha-divisoria" />
+                  <div>
+                    <img 
+                        src="/logofilhos.png" 
+                        alt="logo filhos" 
+                        style={{ height: '20px', width: 'auto', marginLeft: '0px' }} 
+                      />
+                  </div>
+              <hr className="linha-divisoria" />
+                  <div>
+                    <img 
+                        src="/logocasado.png" 
+                        alt="logo casado" 
+                        style={{ height: '20px', width: 'auto', marginLeft: '0px' }} 
+                      />
+                  </div>
+            </div>
+
+
+
+
+
           </div>
           
       </section>
