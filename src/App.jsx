@@ -28,20 +28,26 @@ const translations = {
     heroBtn: "Ver Meus Projetos",
 // CATEGORIAS SEÇÃO SOBRE
     aboutTitle: "Sobre Mim / Histórico",
-    aboutP1: "Analista de Sistemas em formação e desenvolvedor full-stack (PHP, React, Java). Possui visão multidisciplinar como Engenheiro Têxtil (UNESP) com pós-graduações em Marketing e RH (UNICAMP). Combina essa base de negócios com 5 anos de experiência coordenando projetos na indústria e comércio, traduzindo necessidades corporativas em soluções técnicas eficientes. Busca recolocação em equipes de desenvolvimento ágil de software para agregar valor técnico e estratégico imediato.",
-    aboutP2: "Atualmente, amplio essa atuação técnica através da graduação em Análise e Desenvolvimento de Sistemas e por certificações contínuas em arquitetura e infraestrutura de computação em nuvem (Google Cloud Platform), com foco em ambientes escaláveis e redes seguras. Com histórico consolidado nos mercados de varejo corporativo e B2B, combino proficiência técnica sênior com visão analítica para arquitetar soluções que geram eficiência operacional e real crescimento de negócios.",
+    aboutP1: "Engenheiro de software em formação, analista de Sistemas desenvolvedor full-stack (PHP, React, Java). Possui visão multidisciplinar como Engenheiro Têxtil (UNESP) com pós-graduações em Marketing e RH (UNICAMP). Combina essa base de negócios com 5 anos de experiência coordenando projetos na indústria e comércio, traduzindo necessidades corporativas em soluções técnicas eficientes. Busca recolocação em equipes de desenvolvimento ágil de software para agregar valor técnico e estratégico imediato.",
+    aboutP2: "Atualmente, amplio essa atuação técnica através da graduação em Engenharia de Software e por certificações contínuas em arquitetura e infraestrutura de nuvem (Google Cloud Platform), com foco em ambientes escaláveis e redes seguras. Com histórico consolidado nos mercados de varejo corporativo e B2B, combino proficiência no desenvolvimento de aplicações modernas — dominando ecossistemas como React, Next.js e Prisma ORM — com uma forte visão analítica. Essa capacidade de arquitetar soluções de ponta a ponta, da interface ao banco de dados, permite entregar produtos que geram eficiência operacional e impulsionam o real crescimento dos negócios.",
 // CATEGORIAS DE HABILIDADES
     skillsTitle: "Minhas Habilidades",
-    skillsCat1: "Backend & Dados",
-    skillsCat1A: "SQL / MySQL",
-    skillsCat1B: "Java & C++",
-    skillsCat1C: "PHP",
-    skillsCat1D: "VBA / Visual Basic",
-    skillsCat2: "Frontend & Cloud",
-    skillsCat2A: "HTML5 & CSS3",
-    skillsCat2B: "JavaScript",
+    skillsCat0: "Backend & Dados",
+    skillsCat0A: "SQL / MySQL",
+    skillsCat0B: "Java & C++",
+    skillsCat0C: "PHP",
+    skillsCat0D: "VBA / Visual Basic",
+    skillsCat0E: "Prisma ORM",
+    skillsCat1: "Frontend",
+    skillsCat1A: "HTML5 & CSS3",
+    skillsCat1B: "JavaScript",
+    skillsCat1C: "React.js",
+    skillsCat1D: "Next.js",
+    skillsCat2: "Cloud & Infraestrutura",
+    skillsCat2A: "Google Cloud Platform (GCP)",
+    skillsCat2B: "Infraestrutura e Redes",
     skillsCat2C: "Google Cloud Platform",
-    skillsCat2D: "Infraestrutura e Redes",
+    skillsCat2D: "Vercel",
     skillsCat3: "Metodologias & Gestão",
     skillsCat3A: "Resolução de Problemas (PDCA)",
     skillsCat3B: "Tráfego WEB (SEO Google)",
@@ -91,20 +97,26 @@ const translations = {
     heroSubtitle: "Software Developer | Systems Analyst | Full Stack (React/PHP/SQL) | Cloud (GCP) | Former Engineer",
     heroBtn: "View My Projects",
     aboutTitle: "About Me / History",
-    aboutP1: "Systems Analyst in training and full-stack developer (PHP, React, Java). Brings a multidisciplinary perspective as a Textile Engineer (UNESP) with postgraduate degrees in Marketing and HR (UNICAMP). Combines this business foundation with 5 years of experience coordinating projects in industry and commerce, translating corporate needs into efficient technical solutions. Seeking a position in agile software development teams to add immediate technical and strategic value.",
-    aboutP2: "Currently, I am expanding my technical capabilities through a degree in Systems Analysis and Development and continuous certifications in cloud architecture and infrastructure (Google Cloud Platform), focusing on scalable environments and secure networks. With a proven track record in B2B and retail corporate environments, I combine senior-level technical proficiency with an analytical mindset to architect solutions that drive operational efficiency and real business growth.",
+    aboutP1: "Software engenier in training, systems Analyst full-stack developer (PHP, React, Java). Brings a multidisciplinary perspective as a Textile Engineer (UNESP) with postgraduate degrees in Marketing and HR (UNICAMP). Combines this business foundation with 5 years of experience coordinating projects in industry and commerce, translating corporate needs into efficient technical solutions. Seeking a position in agile software development teams to add immediate technical and strategic value.",
+    aboutP2: "urrently, I am expanding my technical expertise through a degree in Software Engenier and ongoing certifications in cloud architecture and infrastructure (Google Cloud Platform), focusing on scalable environments and secure networks. With a solid background in the corporate retail and B2B markets, I combine proficiency in modern application development — mastering ecosystems such as React, Next.js, and Prisma ORM — with a strong analytical mindset. This ability to architect end-to-end solutions, from the user interface to the database, enables me to deliver products that drive operational efficiency and fuel real business growth.",
 // SKILLS CATEGORIES ENGLISH
     skillsTitle: "My Skills",
-    skillsCat1: "Backend & Data",
-    skillsCat1A: "SQL / MySQL",
-    skillsCat1B: "Java & C++",
-    skillsCat1C: "PHP",
-    skillsCat1D: "VBA / Visual Basic",
-    skillsCat2: "Frontend & Cloud",
-    skillsCat2A: "HTML5 & CSS3",
-    skillsCat2B: "JavaScript",
+    skillsCat0: "Backend & Data",
+    skillsCat0A: "SQL / MySQL",
+    skillsCat0B: "Java & C++",
+    skillsCat0C: "PHP",
+    skillsCat0D: "VBA / Visual Basic",
+    skillsCat0E: "Prisma ORM",
+    skillsCat1: "Frontend",
+    skillsCat1A: "HTML5 & CSS3",
+    skillsCat1B: "JavaScript",
+    skillsCat1C: "React.js",
+    skillsCat1D: "Next.js",
+    skillsCat2: "Cloud & Infrastructure",
+    skillsCat2A: "Google Cloud Platform (GCP)",
+    skillsCat2B: "Infrastructure e Networks",
     skillsCat2C: "Google Cloud Platform",
-    skillsCat2D: "Infrastructure & Networks",
+    skillsCat2D: "Vercel",
     skillsCat3: "Methodologies & Management",
     skillsCat3A: "Problem Solving (PDCA Method)",
     skillsCat3B: "Web Traffic (Google SEO)",
@@ -289,6 +301,16 @@ export default function App() {
       <section id="habilidades" className="section-container bg-light">
         <h2>{t.skillsTitle}</h2>
         <div className="skills-grid">
+          {/*------------------------------------------- */}
+          <div className="skills-category">
+            <h3>{t.skillsCat0}</h3>
+            <ul className="skills-buttons-list">
+              <li>{t.skillsCat0A}</li>
+              <li>{t.skillsCat0B}</li>
+              <li>{t.skillsCat0C}</li>
+              <li>{t.skillsCat0D}</li>
+            </ul>
+          </div>
           {/*------------------------------------------- */}
           <div className="skills-category">
             <h3>{t.skillsCat1}</h3>
